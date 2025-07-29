@@ -121,6 +121,7 @@ message SyncActionValue {
 	optional BusinessBroadcastAssociationAction businessBroadcastAssociationAction = 65;
 	optional DetectedOutcomesStatusAction detectedOutcomesStatusAction = 66;
 	optional MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 68;
+	optional BusinessBroadcastListAction businessBroadcastListAction = 69;
 
 	message MaibaAIFeaturesControlAction {
 		optional MaibaAIFeatureStatus aiFeatureStatus = 1;
@@ -130,6 +131,11 @@ message SyncActionValue {
 			ENABLED_HAS_LEARNING = 1;
 			DISABLED = 2;
 		}
+	}
+
+	message BusinessBroadcastListAction {
+		optional bool deleted = 1;
+		repeated string phoneNumbers = 2;
 	}
 
 	message BusinessBroadcastAssociationAction {
