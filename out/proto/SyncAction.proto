@@ -122,6 +122,7 @@ message SyncActionValue {
 	optional DetectedOutcomesStatusAction detectedOutcomesStatusAction = 66;
 	optional MaibaAIFeaturesControlAction maibaAiFeaturesControlAction = 68;
 	optional BusinessBroadcastListAction businessBroadcastListAction = 69;
+	optional MusicUserIdAction musicUserIdAction = 70;
 
 	message MaibaAIFeaturesControlAction {
 		optional MaibaAIFeatureStatus aiFeatureStatus = 1;
@@ -262,6 +263,10 @@ message SyncActionValue {
 
 	message BotWelcomeRequestAction {
 		optional bool isSent = 1;
+	}
+
+	message MusicUserIdAction {
+		optional string musicUserId = 1;
 	}
 
 	message StatusPrivacyAction {
