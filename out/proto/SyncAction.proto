@@ -347,7 +347,8 @@ message SyncActionValue {
 		optional bool isFavorite = 9;
 		optional uint32 deviceIdHint = 10;
 		optional bool isLottie = 11;
-		optional bool isAvatarSticker = 12;
+		optional string imageHash = 12;
+		optional bool isAvatarSticker = 13;
 	}
 
 	message RemoveRecentStickerAction {

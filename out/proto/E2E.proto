@@ -202,7 +202,7 @@ message Message {
 
 	message MessageHistoryMetadata {
 		repeated string historyReceivers = 1;
-		optional int64 firstMessageTimestamp = 2;
+		optional int64 oldestMessageTimestamp = 2;
 		optional int64 messageCount = 3;
 	}
 
@@ -571,6 +571,12 @@ message Message {
 		message CarouselMessage {
 			repeated Message.InteractiveMessage cards = 1;
 			optional int32 messageVersion = 2;
+			optional CarouselCardType carouselCardType = 3;
+		
+			enum CarouselCardType {
+				DEFAULT = 0;
+				ALBUM = 1;
+			}
 		}
 	
 		message NativeFlowMessage {
@@ -871,6 +877,7 @@ message Message {
 		optional Message noteMessage = 2;
 		optional MessageKey requestMessageKey = 3;
 		optional PaymentBackground background = 4;
+		optional string transactionData = 5;
 	}
 
 	message HighlyStructuredMessage {
@@ -978,6 +985,8 @@ message Message {
 		
 			message CompanionCanonicalUserNonceFetchResponse {
 				optional string nonce = 1;
+				optional string waFbid = 2;
+				optional bool forceRefresh = 3;
 			}
 		
 			message CompanionMetaNonceFetchResponse {
@@ -1794,6 +1803,7 @@ message ContextInfo {
 		optional bool wtwaAdFormat = 24;
 		optional AdType adType = 25;
 		optional string wtwaWebsiteUrl = 26;
+		optional string adPreviewUrl = 27;
 	
 		enum AdType {
 			CTWA = 0;
