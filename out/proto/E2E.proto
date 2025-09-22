@@ -3,8 +3,8 @@ syntax = "proto2";
 import "Protocol.proto";
 import "MmsRetry.proto";
 import "CompanionReg.proto";
+import "AICommon.proto";
 import "StatusAttributions.proto";
-import "BotMetadata.proto";
 import "Adv.proto";
 
 enum KeepType {
@@ -105,6 +105,8 @@ message Message {
 	optional StatusQuestionAnswerMessage statusQuestionAnswerMessage = 105;
 	optional FutureProofMessage questionReplyMessage = 106;
 	optional QuestionResponseMessage questionResponseMessage = 107;
+	optional NewsletterFollowerInviteMessage newsletterFollowerInviteMessage = 108;
+	optional StatusQuotedMessage statusQuotedMessage = 109;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -123,6 +125,18 @@ message Message {
 		COMPANION_META_NONCE_FETCH = 7;
 		COMPANION_SYNCD_SNAPSHOT_FATAL_RECOVERY = 8;
 		COMPANION_CANONICAL_USER_NONCE_FETCH = 9;
+		HISTORY_SYNC_CHUNK_RETRY = 10;
+	}
+
+	enum HistorySyncType {
+		INITIAL_BOOTSTRAP = 0;
+		INITIAL_STATUS_V3 = 1;
+		FULL = 2;
+		RECENT = 3;
+		PUSH_NAME = 4;
+		NON_BLOCKING_DATA = 5;
+		ON_DEMAND = 6;
+		NO_HISTORY = 7;
 	}
 
 	enum MediaKeyDomain {
@@ -504,6 +518,14 @@ message Message {
 		optional ContextInfo contextInfo = 1;
 	}
 
+	message NewsletterFollowerInviteMessage {
+		optional string newsletterJid = 1;
+		optional string newsletterName = 2;
+		optional bytes jpegThumbnail = 3;
+		optional string caption = 4;
+		optional ContextInfo contextInfo = 5;
+	}
+
 	message NewsletterAdminInviteMessage {
 		optional string newsletterJid = 1;
 		optional string newsletterName = 2;
@@ -757,6 +779,17 @@ message Message {
 		}
 	}
 
+	message StatusQuotedMessage {
+		optional StatusQuotedMessageType type = 1;
+		optional string text = 2;
+		optional bytes thumbnail = 3;
+		optional MessageKey originalStatusId = 4;
+	
+		enum StatusQuotedMessageType {
+			QUESTION_ANSWER = 1;
+		}
+	}
+
 	message TemplateButtonReplyMessage {
 		optional string selectedId = 1;
 		optional string selectedDisplayText = 2;
@@ -968,6 +1001,16 @@ message Message {
 			optional CompanionMetaNonceFetchResponse companionMetaNonceFetchRequestResponse = 7;
 			optional SyncDSnapshotFatalRecoveryResponse syncdSnapshotFatalRecoveryResponse = 8;
 			optional CompanionCanonicalUserNonceFetchResponse companionCanonicalUserNonceFetchRequestResponse = 9;
+			optional HistorySyncChunkRetryResponse historySyncChunkRetryResponse = 10;
+		
+			enum HistorySyncChunkRetryResponseCode {
+				GENERATION_ERROR = 1;
+				CHUNK_CONSUMED = 2;
+				TIMEOUT = 3;
+				SESSION_EXHAUSTED = 4;
+				CHUNK_EXHAUSTED = 5;
+				DUPLICATED_REQUEST = 6;
+			}
 		
 			enum FullHistorySyncOnDemandResponseCode {
 				REQUEST_SUCCESS = 0;
@@ -977,6 +1020,14 @@ message Message {
 				ERROR_REQUEST_ON_NON_SMB_PRIMARY = 4;
 				ERROR_HOSTED_DEVICE_NOT_CONNECTED = 5;
 				ERROR_HOSTED_DEVICE_LOGIN_TIME_NOT_SET = 6;
+			}
+		
+			message HistorySyncChunkRetryResponse {
+				optional Message.HistorySyncType syncType = 1;
+				optional uint32 chunkOrder = 2;
+				optional string requestId = 3;
+				optional Message.PeerDataOperationRequestResponseMessage.PeerDataOperationResult.HistorySyncChunkRetryResponseCode responseCode = 4;
+				optional bool canRecover = 5;
 			}
 		
 			message SyncDSnapshotFatalRecoveryResponse {
@@ -1044,6 +1095,14 @@ message Message {
 		repeated PlaceholderMessageResendRequest placeholderMessageResendRequest = 5;
 		optional FullHistorySyncOnDemandRequest fullHistorySyncOnDemandRequest = 6;
 		optional SyncDCollectionFatalRecoveryRequest syncdCollectionFatalRecoveryRequest = 7;
+		optional HistorySyncChunkRetryRequest historySyncChunkRetryRequest = 8;
+	
+		message HistorySyncChunkRetryRequest {
+			optional Message.HistorySyncType syncType = 1;
+			optional uint32 chunkOrder = 2;
+			optional string chunkNotificationId = 3;
+			optional bool regenerateChunk = 4;
+		}
 	
 		message SyncDCollectionFatalRecoveryRequest {
 			optional string collectionName = 1;
@@ -1122,7 +1181,7 @@ message Message {
 		optional bytes mediaKey = 3;
 		optional bytes fileEncSha256 = 4;
 		optional string directPath = 5;
-		optional HistorySyncType syncType = 6;
+		optional Message.HistorySyncType syncType = 6;
 		optional uint32 chunkOrder = 7;
 		optional string originalMessageId = 8;
 		optional uint32 progress = 9;
@@ -1131,17 +1190,6 @@ message Message {
 		optional string peerDataRequestSessionId = 12;
 		optional Message.FullHistorySyncOnDemandRequestMetadata fullHistorySyncOnDemandRequestMetadata = 13;
 		optional string encHandle = 14;
-	
-		enum HistorySyncType {
-			INITIAL_BOOTSTRAP = 0;
-			INITIAL_STATUS_V3 = 1;
-			FULL = 2;
-			RECENT = 3;
-			PUSH_NAME = 4;
-			NON_BLOCKING_DATA = 5;
-			ON_DEMAND = 6;
-			NO_HISTORY = 7;
-		}
 	}
 
 	message RequestWelcomeMessageMetadata {
@@ -1168,7 +1216,7 @@ message Message {
 		optional int64 timestampMs = 15;
 		optional Message.PeerDataOperationRequestMessage peerDataOperationRequestMessage = 16;
 		optional Message.PeerDataOperationRequestResponseMessage peerDataOperationRequestResponseMessage = 17;
-		optional Message.BotFeedbackMessage botFeedbackMessage = 18;
+		optional BotFeedbackMessage botFeedbackMessage = 18;
 		optional string invokerJid = 19;
 		optional Message.RequestWelcomeMessageMetadata requestWelcomeMessageMetadata = 20;
 		optional MediaNotifyMessage mediaNotifyMessage = 21;
@@ -1226,71 +1274,6 @@ message Message {
 		message CloudAPIThreadControlNotificationContent {
 			optional string handoffNotificationText = 1;
 			optional string extraJson = 2;
-		}
-	}
-
-	message BotFeedbackMessage {
-		optional MessageKey messageKey = 1;
-		optional BotFeedbackKind kind = 2;
-		optional string text = 3;
-		optional uint64 kindNegative = 4;
-		optional uint64 kindPositive = 5;
-		optional ReportKind kindReport = 6;
-		optional SideBySideSurveyMetadata sideBySideSurveyMetadata = 7;
-	
-		enum ReportKind {
-			NONE = 0;
-			GENERIC = 1;
-		}
-	
-		enum BotFeedbackKindMultiplePositive {
-			BOT_FEEDBACK_MULTIPLE_POSITIVE_GENERIC = 1;
-		}
-	
-		enum BotFeedbackKindMultipleNegative {
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_GENERIC = 1;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_HELPFUL = 2;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_INTERESTING = 4;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_ACCURATE = 8;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_SAFE = 16;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_OTHER = 32;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_REFUSED = 64;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_VISUALLY_APPEALING = 128;
-			BOT_FEEDBACK_MULTIPLE_NEGATIVE_NOT_RELEVANT_TO_TEXT = 256;
-		}
-	
-		enum BotFeedbackKind {
-			BOT_FEEDBACK_POSITIVE = 0;
-			BOT_FEEDBACK_NEGATIVE_GENERIC = 1;
-			BOT_FEEDBACK_NEGATIVE_HELPFUL = 2;
-			BOT_FEEDBACK_NEGATIVE_INTERESTING = 3;
-			BOT_FEEDBACK_NEGATIVE_ACCURATE = 4;
-			BOT_FEEDBACK_NEGATIVE_SAFE = 5;
-			BOT_FEEDBACK_NEGATIVE_OTHER = 6;
-			BOT_FEEDBACK_NEGATIVE_REFUSED = 7;
-			BOT_FEEDBACK_NEGATIVE_NOT_VISUALLY_APPEALING = 8;
-			BOT_FEEDBACK_NEGATIVE_NOT_RELEVANT_TO_TEXT = 9;
-			BOT_FEEDBACK_NEGATIVE_PERSONALIZED = 10;
-			BOT_FEEDBACK_NEGATIVE_CLARITY = 11;
-			BOT_FEEDBACK_NEGATIVE_DOESNT_LOOK_LIKE_THE_PERSON = 12;
-			BOT_FEEDBACK_NEGATIVE_HALLUCINATION_INTERNAL_ONLY = 13;
-			BOT_FEEDBACK_NEGATIVE = 14;
-		}
-	
-		message SideBySideSurveyMetadata {
-			optional string selectedRequestId = 1;
-			optional uint32 surveyId = 2;
-			optional string simonSessionFbid = 3;
-			optional string responseOtid = 4;
-			optional string responseTimestampMsString = 5;
-			optional bool isSelectedResponsePrimary = 6;
-			optional string messageIdToEdit = 7;
-			optional SideBySideSurveyAnalyticsData analyticsData = 8;
-		
-			message SideBySideSurveyAnalyticsData {
-				optional string tessaEvent = 1;
-				optional string tessaSessionFbid = 2;
-			}
 		}
 	}
 
@@ -1432,6 +1415,8 @@ message Message {
 		optional Message.LinkPreviewMetadata linkPreviewMetadata = 34;
 		optional Message.PaymentLinkMetadata paymentLinkMetadata = 35;
 		repeated Message.VideoEndCard endCardTiles = 36;
+		optional string videoContentUrl = 37;
+		optional EmbeddedMusic musicMetadata = 38;
 	
 		enum InviteLinkGroupType {
 			DEFAULT = 0;
@@ -1467,6 +1452,7 @@ message Message {
 		optional uint32 fbExperimentId = 3;
 		optional uint32 linkMediaDuration = 4;
 		optional SocialMediaPostType socialMediaPostType = 5;
+		optional bool linkInlineVideoMuted = 6;
 	
 		enum SocialMediaPostType {
 			NONE = 0;
@@ -1676,6 +1662,12 @@ message ContextInfo {
 	optional QuestionReplyQuotedMessage questionReplyQuotedMessage = 68;
 	optional StatusAudienceMetadata statusAudienceMetadata = 69;
 	optional uint32 nonJidMentions = 70;
+	optional QuotedType quotedType = 71;
+
+	enum QuotedType {
+		EXPLICIT = 0;
+		AUTO = 1;
+	}
 
 	enum ForwardOrigin {
 		UNKNOWN = 0;
@@ -1727,6 +1719,7 @@ message ContextInfo {
 		optional bool cannotBeRanked = 2;
 		optional bool canRequestFeedback = 3;
 		optional bool canBeReshared = 4;
+		optional bool canReceiveMultiReact = 5;
 	}
 
 	message DataSharingContext {
@@ -1747,12 +1740,6 @@ message ContextInfo {
 			optional float floatData = 4;
 			optional ContextInfo.DataSharingContext.Parameters contents = 5;
 		}
-	}
-
-	message ForwardedAIBotMessageInfo {
-		optional string botName = 1;
-		optional string botJid = 2;
-		optional string creatorName = 3;
 	}
 
 	message QuestionReplyQuotedMessage {
@@ -1839,171 +1826,6 @@ message ContextInfo {
 	}
 }
 
-message AIRichResponseMessage {
-	optional AIRichResponseMessageType messageType = 1;
-	repeated AIRichResponseSubMessage submessages = 2;
-	optional AIRichResponseUnifiedResponse unifiedResponse = 3;
-	optional ContextInfo contextInfo = 4;
-
-	enum AIRichResponseSubMessageType {
-		AI_RICH_RESPONSE_UNKNOWN = 0;
-		AI_RICH_RESPONSE_GRID_IMAGE = 1;
-		AI_RICH_RESPONSE_TEXT = 2;
-		AI_RICH_RESPONSE_INLINE_IMAGE = 3;
-		AI_RICH_RESPONSE_TABLE = 4;
-		AI_RICH_RESPONSE_CODE = 5;
-		AI_RICH_RESPONSE_DYNAMIC = 6;
-		AI_RICH_RESPONSE_MAP = 7;
-		AI_RICH_RESPONSE_LATEX = 8;
-		AI_RICH_RESPONSE_CONTENT_ITEMS = 9;
-	}
-
-	enum AIRichResponseMessageType {
-		AI_RICH_RESPONSE_TYPE_UNKNOWN = 0;
-		AI_RICH_RESPONSE_TYPE_STANDARD = 1;
-	}
-
-	message AIRichResponseSubMessage {
-		optional AIRichResponseMessage.AIRichResponseSubMessageType messageType = 1;
-		optional AIRichResponseMessage.AIRichResponseGridImageMetadata gridImageMetadata = 2;
-		optional string messageText = 3;
-		optional AIRichResponseMessage.AIRichResponseInlineImageMetadata imageMetadata = 4;
-		optional AIRichResponseMessage.AIRichResponseCodeMetadata codeMetadata = 5;
-		optional AIRichResponseMessage.AIRichResponseTableMetadata tableMetadata = 6;
-		optional AIRichResponseMessage.AIRichResponseDynamicMetadata dynamicMetadata = 7;
-		optional AIRichResponseMessage.AIRichResponseLatexMetadata latexMetadata = 8;
-		optional AIRichResponseMessage.AIRichResponseMapMetadata mapMetadata = 9;
-		optional AIRichResponseMessage.AIRichResponseContentItemsMetadata contentItemsMetadata = 10;
-	}
-
-	message AIRichResponseContentItemsMetadata {
-		repeated AIRichResponseContentItemMetadata itemsMetadata = 1;
-		optional ContentType contentType = 2;
-	
-		enum ContentType {
-			DEFAULT = 0;
-			CAROUSEL = 1;
-		}
-	
-		message AIRichResponseContentItemMetadata {
-			oneof aIRichResponseContentItem {
-				AIRichResponseMessage.AIRichResponseContentItemsMetadata.AIRichResponseReelItem reelItem = 1;
-			}
-		}
-	
-		message AIRichResponseReelItem {
-			optional string title = 1;
-			optional string profileIconUrl = 2;
-			optional string thumbnailUrl = 3;
-			optional string videoUrl = 4;
-		}
-	}
-
-	message AIRichResponseMapMetadata {
-		optional double centerLatitude = 1;
-		optional double centerLongitude = 2;
-		optional double latitudeDelta = 3;
-		optional double longitudeDelta = 4;
-		repeated AIRichResponseMapAnnotation annotations = 5;
-		optional bool showInfoList = 6;
-	
-		message AIRichResponseMapAnnotation {
-			optional uint32 annotationNumber = 1;
-			optional double latitude = 2;
-			optional double longitude = 3;
-			optional string title = 4;
-			optional string body = 5;
-		}
-	}
-
-	message AIRichResponseLatexMetadata {
-		optional string text = 1;
-		repeated AIRichResponseLatexExpression expressions = 2;
-	
-		message AIRichResponseLatexExpression {
-			optional string latexExpression = 1;
-			optional string url = 2;
-			optional double width = 3;
-			optional double height = 4;
-			optional double fontHeight = 5;
-			optional double imageTopPadding = 6;
-			optional double imageLeadingPadding = 7;
-			optional double imageBottomPadding = 8;
-			optional double imageTrailingPadding = 9;
-		}
-	}
-
-	message AIRichResponseUnifiedResponse {
-		optional bytes data = 1;
-	}
-
-	message AIRichResponseDynamicMetadata {
-		optional AIRichResponseDynamicMetadataType type = 1;
-		optional uint64 version = 2;
-		optional string url = 3;
-		optional uint32 loopCount = 4;
-	
-		enum AIRichResponseDynamicMetadataType {
-			AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_UNKNOWN = 0;
-			AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_IMAGE = 1;
-			AI_RICH_RESPONSE_DYNAMIC_METADATA_TYPE_GIF = 2;
-		}
-	}
-
-	message AIRichResponseTableMetadata {
-		repeated AIRichResponseTableRow rows = 1;
-		optional string title = 2;
-	
-		message AIRichResponseTableRow {
-			repeated string items = 1;
-			optional bool isHeading = 2;
-		}
-	}
-
-	message AIRichResponseCodeMetadata {
-		optional string codeLanguage = 1;
-		repeated AIRichResponseCodeBlock codeBlocks = 2;
-	
-		enum AIRichResponseCodeHighlightType {
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_DEFAULT = 0;
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_KEYWORD = 1;
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_METHOD = 2;
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_STRING = 3;
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_NUMBER = 4;
-			AI_RICH_RESPONSE_CODE_HIGHLIGHT_COMMENT = 5;
-		}
-	
-		message AIRichResponseCodeBlock {
-			optional AIRichResponseMessage.AIRichResponseCodeMetadata.AIRichResponseCodeHighlightType highlightType = 1;
-			optional string codeContent = 2;
-		}
-	}
-
-	message AIRichResponseInlineImageMetadata {
-		optional AIRichResponseMessage.AIRichResponseImageURL imageUrl = 1;
-		optional string imageText = 2;
-		optional AIRichResponseImageAlignment alignment = 3;
-		optional string tapLinkUrl = 4;
-	
-		enum AIRichResponseImageAlignment {
-			AI_RICH_RESPONSE_IMAGE_LAYOUT_LEADING_ALIGNED = 0;
-			AI_RICH_RESPONSE_IMAGE_LAYOUT_TRAILING_ALIGNED = 1;
-			AI_RICH_RESPONSE_IMAGE_LAYOUT_CENTER_ALIGNED = 2;
-		}
-	}
-
-	message AIRichResponseGridImageMetadata {
-		optional AIRichResponseMessage.AIRichResponseImageURL gridImageUrl = 1;
-		repeated AIRichResponseMessage.AIRichResponseImageURL imageUrls = 2;
-	}
-
-	message AIRichResponseImageURL {
-		optional string imagePreviewUrl = 1;
-		optional string imageHighResUrl = 2;
-		optional string sourceUrl = 3;
-	}
-}
-
 message MessageAssociation {
 	optional AssociationType associationType = 1;
 	optional MessageKey parentMessageKey = 2;
@@ -2027,6 +1849,7 @@ message MessageAssociation {
 		VIEW_ALL_REPLIES = 14;
 		STATUS_ADD_YOURS_AI_IMAGINE = 15;
 		STATUS_QUESTION = 16;
+		STATUS_ADD_YOURS_DIWALI = 17;
 	}
 }
 
@@ -2307,13 +2130,20 @@ message UrlTrackingMap {
 	}
 }
 
+message MemberLabel {
+	optional string label = 1;
+	optional int64 labelTimestamp = 2;
+}
+
+message AIRichResponseMessage {
+	optional AIRichResponseMessageType messageType = 1;
+	repeated AIRichResponseSubMessage submessages = 2;
+	optional AIRichResponseUnifiedResponse unifiedResponse = 3;
+	optional ContextInfo contextInfo = 4;
+}
+
 message AIQueryFanout {
 	optional MessageKey messageKey = 1;
 	optional Message message = 2;
 	optional int64 timestamp = 3;
-}
-
-message MemberLabel {
-	optional string label = 1;
-	optional int64 labelTimestamp = 2;
 }

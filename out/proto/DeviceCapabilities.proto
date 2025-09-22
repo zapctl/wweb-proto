@@ -3,11 +3,16 @@ syntax = "proto2";
 message DeviceCapabilities {
 	optional ChatLockSupportLevel chatLockSupportLevel = 1;
 	optional LIDMigration lidMigration = 2;
+	optional BusinessBroadcast businessBroadcast = 3;
 
 	enum ChatLockSupportLevel {
 		NONE = 0;
 		MINIMAL = 1;
 		FULL = 2;
+	}
+
+	message BusinessBroadcast {
+		optional bool importListEnabled = 1;
 	}
 
 	message LIDMigration {
