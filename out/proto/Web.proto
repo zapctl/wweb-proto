@@ -67,7 +67,7 @@ message WebMessageInfo {
 	repeated Citation supportAiCitations = 72;
 	optional string botTargetId = 73;
 	optional GroupHistoryIndividualMessageInfo groupHistoryIndividualMessageInfo = 74;
-	optional GroupHistoryBundleMessage groupHistoryBundleMessage = 75;
+	optional GroupHistoryBundleInfo groupHistoryBundleInfo = 75;
 
 	enum BizPrivacyStatus {
 		E2EE = 0;
@@ -584,8 +584,8 @@ message GroupHistoryIndividualMessageInfo {
 	optional MessageKey bundleMessageKey = 1;
 }
 
-message GroupHistoryBundleMessage {
-	optional Message.MessageHistoryBundle messageHistoryBundle = 1;
+message GroupHistoryBundleInfo {
+	optional Message.MessageHistoryBundle deprecatedMessageHistoryBundle = 1;
 	optional ProcessState processState = 2;
 
 	enum ProcessState {
