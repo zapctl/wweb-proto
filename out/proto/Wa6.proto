@@ -60,6 +60,8 @@ message ClientPayload {
 	optional AccountType accountType = 42;
 	optional sfixed32 connectionSequenceInfo = 43;
 	optional bool paaLink = 44;
+	optional int32 preacksCount = 45;
+	optional int32 processingQueueSize = 46;
 
 	enum TrafficAnonymization {
 		OFF = 0;
