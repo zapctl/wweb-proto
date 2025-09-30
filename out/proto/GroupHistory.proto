@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+import "Web.proto";
+
+message GroupHistory {
+	repeated WebMessageInfo messages = 1;
+}
