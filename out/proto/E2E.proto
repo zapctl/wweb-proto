@@ -107,6 +107,7 @@ message Message {
 	optional QuestionResponseMessage questionResponseMessage = 107;
 	optional NewsletterFollowerInviteMessage newsletterFollowerInviteMessage = 108;
 	optional StatusQuotedMessage statusQuotedMessage = 109;
+	optional StatusStickerInteractionMessage statusStickerInteractionMessage = 110;
 
 	enum PollContentType {
 		UNKNOWN = 0;
@@ -358,6 +359,17 @@ message Message {
 	message QuestionResponseMessage {
 		optional MessageKey key = 1;
 		optional string text = 2;
+	}
+
+	message StatusStickerInteractionMessage {
+		optional MessageKey key = 1;
+		optional string stickerKey = 2;
+		optional StatusStickerType type = 3;
+	
+		enum StatusStickerType {
+			UNKNOWN = 0;
+			REACTION = 1;
+		}
 	}
 
 	message StatusQuestionAnswerMessage {
@@ -1855,6 +1867,7 @@ message MessageAssociation {
 		STATUS_ADD_YOURS_AI_IMAGINE = 15;
 		STATUS_QUESTION = 16;
 		STATUS_ADD_YOURS_DIWALI = 17;
+		STATUS_REACTION = 18;
 	}
 }
 
