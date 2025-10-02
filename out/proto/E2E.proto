@@ -1680,6 +1680,7 @@ message ContextInfo {
 	optional StatusAudienceMetadata statusAudienceMetadata = 69;
 	optional uint32 nonJidMentions = 70;
 	optional QuotedType quotedType = 71;
+	optional BotMessageSharingInfo botMessageSharingInfo = 72;
 
 	enum QuotedType {
 		EXPLICIT = 0;
@@ -1712,6 +1713,8 @@ message ContextInfo {
 		HD_IMAGE_CHILD = 4;
 		MOTION_PHOTO_PARENT = 5;
 		MOTION_PHOTO_CHILD = 6;
+		PAIRED_HEVC_PARENT = 7;
+		PAIRED_HEVC_CHILD = 8;
 	}
 
 	enum StatusAttributionType {
@@ -1868,6 +1871,7 @@ message MessageAssociation {
 		STATUS_QUESTION = 16;
 		STATUS_ADD_YOURS_DIWALI = 17;
 		STATUS_REACTION = 18;
+		HEVC_VIDEO_DUAL_UPLOAD = 19;
 	}
 }
 
