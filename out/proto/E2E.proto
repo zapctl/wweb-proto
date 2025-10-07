@@ -1456,6 +1456,7 @@ message Message {
 		repeated Message.VideoEndCard endCardTiles = 36;
 		optional string videoContentUrl = 37;
 		optional EmbeddedMusic musicMetadata = 38;
+		optional Message.PaymentExtendedMetadata paymentExtendedMetadata = 39;
 	
 		enum InviteLinkGroupType {
 			DEFAULT = 0;
@@ -1505,6 +1506,12 @@ message Message {
 
 	message URLMetadata {
 		optional uint32 fbExperimentId = 1;
+	}
+
+	message PaymentExtendedMetadata {
+		optional uint32 type = 1;
+		optional string platform = 2;
+		optional string messageParamsJson = 3;
 	}
 
 	message PaymentLinkMetadata {
