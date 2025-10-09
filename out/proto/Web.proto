@@ -587,6 +587,7 @@ message Citation {
 
 message GroupHistoryIndividualMessageInfo {
 	optional MessageKey bundleMessageKey = 1;
+	optional bool editedAfterReceivedAsHistory = 2;
 }
 
 message GroupHistoryBundleInfo {
