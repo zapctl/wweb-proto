@@ -97,6 +97,7 @@ message SyncActionValue {
 	optional ExternalWebBetaAction externalWebBetaAction = 40;
 	optional PrivacySettingRelayAllCalls privacySettingRelayAllCalls = 41;
 	optional CallLogAction callLogAction = 42;
+	optional UGCBot ugcBot = 43;
 	optional StatusPrivacyAction statusPrivacy = 44;
 	optional BotWelcomeRequestAction botWelcomeRequestAction = 45;
 	optional DeleteIndividualCallLogAction deleteIndividualCallLog = 46;
@@ -125,7 +126,6 @@ message SyncActionValue {
 	optional MusicUserIdAction musicUserIdAction = 70;
 	optional StatusPostOptInNotificationPreferencesAction statusPostOptInNotificationPreferencesAction = 71;
 	optional AvatarUpdatedAction avatarUpdatedAction = 72;
-	optional GalaxyFlowAction galaxyFlowAction = 73;
 
 	message AvatarUpdatedAction {
 		optional AvatarEventType eventType = 1;
@@ -226,14 +226,6 @@ message SyncActionValue {
 		}
 	}
 
-	message GalaxyFlowAction {
-		required GalaxyFlowActionType type = 1;
-	
-		enum GalaxyFlowActionType {
-			LAUNCH = 1;
-		}
-	}
-
 	message NoteEditAction {
 		optional NoteType type = 1;
 		optional string chatJid = 2;
@@ -309,6 +301,10 @@ message SyncActionValue {
 			DENY_LIST = 1;
 			CONTACTS = 2;
 		}
+	}
+
+	message UGCBot {
+		optional bytes definition = 1;
 	}
 
 	message CallLogAction {
