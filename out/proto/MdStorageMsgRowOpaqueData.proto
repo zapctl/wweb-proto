@@ -34,6 +34,7 @@ message MsgOpaqueData {
 	optional PollEncValue encPollVote = 24;
 	optional bool isSentCagPollCreation = 28;
 	optional PollContentType pollContentType = 42;
+	optional PollType pollType = 46;
 	optional PollVotesSnapshot pollVotesSnapshot = 41;
 	optional string encReactionTargetMessageKey = 25;
 	optional bytes encReactionEncPayload = 26;
@@ -52,6 +53,11 @@ message MsgOpaqueData {
 	optional bool eventIsScheduledCall = 44;
 	optional bool eventExtraGuestsAllowed = 45;
 	optional bytes plainProtobufBytes = 43;
+
+	enum PollType {
+		POLL = 0;
+		QUIZ = 1;
+	}
 
 	enum PollContentType {
 		UNKNOWN = 0;
