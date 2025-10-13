@@ -69,6 +69,7 @@ message WebMessageInfo {
 	optional GroupHistoryIndividualMessageInfo groupHistoryIndividualMessageInfo = 74;
 	optional GroupHistoryBundleInfo groupHistoryBundleInfo = 75;
 	optional InteractiveMessageAdditionalMetadata interactiveMessageAdditionalMetadata = 76;
+	optional QuarantinedMessage quarantinedMessage = 77;
 
 	enum BizPrivacyStatus {
 		E2EE = 0;
@@ -298,6 +299,7 @@ message WebMessageInfo {
 		GROUP_MEMBER_LINK_MODE = 217;
 		BIZ_AUTOMATICALLY_LABELED_CHAT_SYSTEM_MESSAGE = 218;
 		PHONE_NUMBER_HIDING_CHAT_DEPRECATED_MESSAGE = 219;
+		QUARANTINED_MESSAGE = 220;
 	}
 
 	enum Status {
@@ -600,4 +602,9 @@ message GroupHistoryBundleInfo {
 		INJECTED_PARTIAL = 2;
 		INJECTION_FAILED = 3;
 	}
+}
+
+message QuarantinedMessage {
+	optional bytes originalData = 1;
+	optional string extractedText = 2;
 }

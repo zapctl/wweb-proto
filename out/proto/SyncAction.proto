@@ -65,7 +65,6 @@ message SyncActionValue {
 	optional ContactAction contactAction = 3;
 	optional MuteAction muteAction = 4;
 	optional PinAction pinAction = 5;
-	optional SecurityNotificationSetting securityNotificationSetting = 6;
 	optional PushNameSetting pushNameSetting = 7;
 	optional QuickReplyAction quickReplyAction = 8;
 	optional RecentEmojiWeightsAction recentEmojiWeightsAction = 11;
@@ -126,6 +125,16 @@ message SyncActionValue {
 	optional MusicUserIdAction musicUserIdAction = 70;
 	optional StatusPostOptInNotificationPreferencesAction statusPostOptInNotificationPreferencesAction = 71;
 	optional AvatarUpdatedAction avatarUpdatedAction = 72;
+	optional PrivateProcessingSettingAction privateProcessingSettingAction = 74;
+
+	message PrivateProcessingSettingAction {
+		optional PrivateProcessingStatus privateProcessingStatus = 1;
+	
+		enum PrivateProcessingStatus {
+			ENABLED = 0;
+			DISABLED = 1;
+		}
+	}
 
 	message AvatarUpdatedAction {
 		optional AvatarEventType eventType = 1;
@@ -184,7 +193,6 @@ message SyncActionValue {
 		optional string fullName = 1;
 		optional string firstName = 2;
 		optional string username = 3;
-		optional bool saveOnPrimaryAddressbook = 4;
 	}
 
 	message NotificationActivitySettingAction {
@@ -203,6 +211,8 @@ message SyncActionValue {
 	
 		enum AccountLinkState {
 			ACTIVE = 0;
+			PAUSED = 1;
+			UNLINKED = 2;
 		}
 	}
 
@@ -504,10 +514,6 @@ message SyncActionValue {
 
 	message PushNameSetting {
 		optional string name = 1;
-	}
-
-	message SecurityNotificationSetting {
-		optional bool showNotification = 1;
 	}
 
 	message PinAction {
