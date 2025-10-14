@@ -310,6 +310,7 @@ message SyncActionValue {
 			ALLOW_LIST = 0;
 			DENY_LIST = 1;
 			CONTACTS = 2;
+			CLOSE_FRIENDS = 3;
 		}
 	}
 
