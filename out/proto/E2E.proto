@@ -7,6 +7,11 @@ import "AICommon.proto";
 import "StatusAttributions.proto";
 import "Adv.proto";
 
+enum WebLinkRenderConfig {
+	WEBVIEW = 0;
+	SYSTEM = 1;
+}
+
 enum KeepType {
 	UNKNOWN = 0;
 	KEEP_FOR_ALL = 1;
@@ -107,9 +112,9 @@ message Message {
 	optional StatusQuotedMessage statusQuotedMessage = 109;
 	optional StatusStickerInteractionMessage statusStickerInteractionMessage = 110;
 	optional PollCreationMessage pollCreationMessageV5 = 111;
-	optional PollResultSnapshotMessage pollResultSnapshotMessageV2 = 112;
 	optional NewsletterFollowerInviteMessage newsletterFollowerInviteMessageV2 = 113;
 	optional RequestContactInfoMessage requestContactInfoMessage = 114;
+	optional PollResultSnapshotMessage pollResultSnapshotMessageV3 = 115;
 
 	enum PollType {
 		POLL = 0;
@@ -146,6 +151,7 @@ message Message {
 		NON_BLOCKING_DATA = 5;
 		ON_DEMAND = 6;
 		NO_HISTORY = 7;
+		MESSAGE_ACCESS_STATUS = 8;
 	}
 
 	enum MediaKeyDomain {
@@ -1228,6 +1234,11 @@ message Message {
 		optional string peerDataRequestSessionId = 12;
 		optional Message.FullHistorySyncOnDemandRequestMetadata fullHistorySyncOnDemandRequestMetadata = 13;
 		optional string encHandle = 14;
+		optional Message.HistorySyncMessageAccessStatus messageAccessStatus = 15;
+	}
+
+	message HistorySyncMessageAccessStatus {
+		optional bool completeAccessGranted = 1;
 	}
 
 	message RequestWelcomeMessageMetadata {
@@ -1933,6 +1944,7 @@ message MessageContextInfo {
 	optional LimitSharing limitSharing = 13;
 	optional LimitSharing limitSharingV2 = 14;
 	repeated ThreadID threadId = 15;
+	optional WebLinkRenderConfig weblinkRenderConfig = 16;
 
 	enum MessageAddonExpiryType {
 		STATIC = 1;

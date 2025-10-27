@@ -5,6 +5,13 @@ message DeviceCapabilities {
 	optional LIDMigration lidMigration = 2;
 	optional BusinessBroadcast businessBroadcast = 3;
 	optional UserHasAvatar userHasAvatar = 4;
+	optional MemberNameTagPrimarySupport memberNameTagPrimarySupport = 5;
+
+	enum MemberNameTagPrimarySupport {
+		DISABLED = 0;
+		RECEIVER_ENABLED = 1;
+		SENDER_ENABLED = 2;
+	}
 
 	enum ChatLockSupportLevel {
 		NONE = 0;

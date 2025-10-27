@@ -126,13 +126,15 @@ message SyncActionValue {
 	optional StatusPostOptInNotificationPreferencesAction statusPostOptInNotificationPreferencesAction = 71;
 	optional AvatarUpdatedAction avatarUpdatedAction = 72;
 	optional PrivateProcessingSettingAction privateProcessingSettingAction = 74;
+	optional NewsletterSavedInterestsAction newsletterSavedInterestsAction = 75;
 
 	message PrivateProcessingSettingAction {
 		optional PrivateProcessingStatus privateProcessingStatus = 1;
 	
 		enum PrivateProcessingStatus {
-			ENABLED = 0;
-			DISABLED = 1;
+			UNDEFINED = 0;
+			ENABLED = 1;
+			DISABLED = 2;
 		}
 	}
 
@@ -298,8 +300,13 @@ message SyncActionValue {
 		optional bool isSent = 1;
 	}
 
+	message NewsletterSavedInterestsAction {
+		optional string newsletterSavedInterests = 1;
+	}
+
 	message MusicUserIdAction {
 		optional string musicUserId = 1;
+		map<string, string> music_user_id_map = 2;
 	}
 
 	message StatusPrivacyAction {
@@ -484,6 +491,7 @@ message SyncActionValue {
 		optional bool isActive = 6;
 		optional ListType type = 7;
 		optional bool isImmutable = 8;
+		optional int64 muteEndTimeMs = 9;
 	
 		enum ListType {
 			NONE = 0;
@@ -494,6 +502,7 @@ message SyncActionValue {
 			CUSTOM = 5;
 			COMMUNITY = 6;
 			SERVER_ASSIGNED = 7;
+			DRAFTED = 8;
 		}
 	}
 
