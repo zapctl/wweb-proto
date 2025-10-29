@@ -4,4 +4,9 @@ import "Web.proto";
 
 message GroupHistory {
 	repeated WebMessageInfo messages = 1;
+	repeated AssociatedMessageList associatedMessageLists = 2;
+}
+
+message AssociatedMessageList {
+	repeated WebMessageInfo messages = 1;
 }
