@@ -127,12 +127,6 @@ message SyncActionValue {
 	optional AvatarUpdatedAction avatarUpdatedAction = 72;
 	optional PrivateProcessingSettingAction privateProcessingSettingAction = 74;
 	optional NewsletterSavedInterestsAction newsletterSavedInterestsAction = 75;
-	optional AiThreadRenameAction aiThreadRenameAction = 76;
-
-	message AiThreadRenameAction {
-		optional string newTitle = 1;
-		optional bool isFromServer = 2;
-	}
 
 	message PrivateProcessingSettingAction {
 		optional PrivateProcessingStatus privateProcessingStatus = 1;
@@ -509,7 +503,6 @@ message SyncActionValue {
 			COMMUNITY = 6;
 			SERVER_ASSIGNED = 7;
 			DRAFTED = 8;
-			AI_HANDOFF = 9;
 		}
 	}
 
