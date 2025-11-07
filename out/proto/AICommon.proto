@@ -80,11 +80,6 @@ enum AIRichResponseSubMessageType {
 	AI_RICH_RESPONSE_CONTENT_ITEMS = 9;
 }
 
-enum SessionTransparencyType {
-	UNKNOWN_TYPE = 0;
-	NY_AI_SAFETY_DISCLAIMER = 1;
-}
-
 message BotAvatarMetadata {
 	optional uint32 sentiment = 1;
 	optional string behaviorGraph = 2;
@@ -830,7 +825,6 @@ message AIRegenerateMetadata {
 message SessionTransparencyMetadata {
 	optional string disclaimerText = 1;
 	optional string hcaId = 2;
-	optional SessionTransparencyType sessionTransparencyType = 3;
 }
 
 message AIHomeState {
