@@ -6,6 +6,7 @@ message DeviceCapabilities {
 	optional BusinessBroadcast businessBroadcast = 3;
 	optional UserHasAvatar userHasAvatar = 4;
 	optional MemberNameTagPrimarySupport memberNameTagPrimarySupport = 5;
+	optional AiThread aiThread = 6;
 
 	enum MemberNameTagPrimarySupport {
 		DISABLED = 0;
@@ -17,6 +18,16 @@ message DeviceCapabilities {
 		NONE = 0;
 		MINIMAL = 1;
 		FULL = 2;
+	}
+
+	message AiThread {
+		optional SupportLevel supportLevel = 1;
+	
+		enum SupportLevel {
+			NONE = 0;
+			INFRA = 1;
+			FULL = 2;
+		}
 	}
 
 	message UserHasAvatar {
