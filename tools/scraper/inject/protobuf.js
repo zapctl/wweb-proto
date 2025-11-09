@@ -1,11 +1,6 @@
 const protoConstants = require("WAProtoConst");
 const protoFiles = loadProtoFiles();
 
-console.log({
-    protoConstants,
-    protoFiles,
-});
-
 function loadProtoFiles() {
     const protoModuleFiles = {};
     const modulesIDs = Object.keys(require('__debug')?.modulesMap || {})
@@ -315,5 +310,4 @@ for (const protoName in protoFiles) {
     protoBufDefinitions[protoName] = protoContent;
 }
 
-console.log(protoBufDefinitions);
 return protoBufDefinitions;

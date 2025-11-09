@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 
-export function calculateProtosMd5(protos) {
-    const contents = Object.entries(protos)
+export function CalcObjectMD5(obj) {
+    const contents = Object.entries(obj)
         .sort()
         .map((key, val) => `${key}:${val}`)
         .join("\n");
