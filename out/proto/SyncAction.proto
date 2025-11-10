@@ -772,12 +772,12 @@ message PatchDebugData {
 
 enum getMutationProps {
 	length = 1;
-	name = D;
+	name = a;
 	prototype = [object Object];
 
 	enum CollectionName {
 		length = 1;
-		name = D;
+		name = a;
 		prototype = [object Object];
 	}
 }
