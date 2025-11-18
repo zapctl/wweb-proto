@@ -38,8 +38,17 @@ function loadProtoFiles() {
                             data: proto.data,
                         }
 
-                        if (proto.data.internalSpec) newNode.type = "message";
-                        else newNode.type = "enum";  // Assumir tipo enum se não for uma mensagem
+                        if (proto.data.internalSpec) {
+                            newNode.type = "message";
+                        } else if (
+                            proto.data &&
+                            typeof proto.data === "object" &&
+                            !Array.isArray(proto.data)
+                        ) {
+                            newNode.type = "enum";
+                        } else {
+                            return [];
+                        }
 
                         acc.push(newNode);
                         return newNode.children;
@@ -219,7 +228,7 @@ function serializeField(node, fieldName, fieldSpec, isOneOf = false) {
 }
 
 function serializeNode(node, level = 0) {
-    let nodeProto = `${node.type} ${node.name} {`
+    let nodeProto = ""
 
     if (node.type === "message") {
         const { internalSpec } = node.data;
@@ -246,18 +255,25 @@ function serializeNode(node, level = 0) {
         const enumSpecs = Object.getOwnPropertyNames(node.data)
             .map((fieldName) => {
                 const fieldSpec = node.data[fieldName];
+                if (typeof fieldSpec !== "number") return;
 
                 return serializeField(node, fieldName, fieldSpec);
-            });
+            })
+            .filter(spec => !!spec);
 
         if (enumSpecs.length > 0) nodeProto += `\n\t${enumSpecs.join("\n\t")}\n`;
     }
 
-    const childNodesSpecs = node.children.map(childNode => serializeNode(childNode, level + 1));
-    if (childNodesSpecs.length > 0) nodeProto += `\n${childNodesSpecs.join("\n\n")}\n`;
+    const childNodesSpecs = node.children
+        .map(childNode => serializeNode(childNode, level + 1))
+        .filter(proto => !!proto)
+        .join("\n\n");
 
-    nodeProto += `}`;
+    if (childNodesSpecs.length > 0) nodeProto += `\n${childNodesSpecs}\n`;
 
+    if (!nodeProto.length) return "";
+
+    nodeProto = `${node.type} ${node.name} {${nodeProto}}`;
     if (level > 0) nodeProto = nodeProto.replace(/(^|\n)/g, `$1\t`);
 
     return nodeProto;
@@ -305,6 +321,7 @@ for (const protoName in protoFiles) {
 
     protoContent += protoFileTree
         .map(node => serializeNode(node))
+        .filter(proto => !!proto)
         .join("\n\n");
 
     protoBufDefinitions[protoName] = protoContent;

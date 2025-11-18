@@ -31,9 +31,10 @@ compile_proto() {
     echo "" > $tsIndexPath
     echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
     echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
-        
+
     echo "Generated index"
-    
+
+    pids=()
     for protoFile in $PROTO_DIR/*.proto; do
         (
             protoc \
@@ -42,9 +43,15 @@ compile_proto() {
             --proto_path $OUT_DIR/proto/ \
             "$protoFile"
         ) &
+        pids+=($!)
     done
-    
-    wait
+
+    for pid in "${pids[@]}"; do
+        wait $pid || {
+            echo "A protoc compilation failed!"
+            exit 1
+        }
+    done
 
     echo "Compiled protocol buffers"
 }
@@ -86,17 +93,24 @@ compile_js() {
 }
 
 minify() {
+    pids=()
     for filePath in $CJS_OUT/*.js $ESM_OUT/*.js; do
         (
             uglifyjs $filePath \
             --compress \
             -o $filePath
-            
+
             echo Minified "$filePath"
         ) &
+        pids+=($!)
     done
-    
-    wait
+
+    for pid in "${pids[@]}"; do
+        wait $pid || {
+            echo "A minify task failed!"
+            exit 1
+        }
+    done
 }
 
 set -e
