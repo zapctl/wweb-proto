@@ -1,73 +1,146 @@
-const relayDefinitions = loadRelayDefinitions(); // local file example: relay.json
-const specs = loadSpecs();
+const graphqlSchemas = parseGraphQLSchemas();
 
-function loadSpecs() {
-    const specs = [];
+function parseGraphQLSchemas() {
+    const schemaSpecs = {};
+    const relayDefinitions = extractRelayModuleDefinitions();
 
-    for (const def of relayDefinitions) {
-        specs.push({
-            id: def.params.id,
-            kind: def.params.operationKind,
-            name: def.params.name,
-            input: loadInput(def.fragment.selections[0].args),
-            output: loadOutput(def.fragment.selections[0]),
-        });
+    for (const definition of relayDefinitions) {
+        const schemaName = definition.params.name.replace(/^WAWeb/g, "");
+
+        schemaSpecs[schemaName] = {
+            id: definition.params.id,
+            type: definition.params.operationKind,
+            input: parseInputSchema([definition.fragment]),
+            output: parseOutputSchema([definition.fragment]),
+        };
     }
 
-    return specs;
+    return schemaSpecs;
 }
 
-function loadInput(args) {
-    const input = {}
+function extractRelayModuleDefinitions() {
+    const relayModulesMap = {};
+    const graphqlModuleIds = Object.keys(require('__debug')?.modulesMap || {})
+        .filter(moduleId => moduleId.endsWith(".graphql"));
 
-    for (const arg of args || []) {
-        switch (arg.kind) {
+    for (const moduleId of graphqlModuleIds) {
+        const module = require(moduleId);
+
+        if (!module?.params?.id) continue;
+        if (moduleId in relayModulesMap) continue;
+
+        relayModulesMap[moduleId] = module;
+    }
+
+    return Object.values(relayModulesMap);
+}
+
+function parseInputSchema(nodes) {
+    const schema = {};
+
+    for (const node of nodes || []) {
+        switch (node.kind) {
+            case "Fragment":
+                if (!node.selections[0]?.args?.length) return null;
+
+                Object.assign(schema, {
+                    type: "object",
+                    properties: parseInputSchema([
+                        ...node.argumentDefinitions,
+                        ...node.selections[0].args,
+                    ]),
+                });
+                break;
+
+            case "LocalArgument":
             case "Variable":
-                input[arg.variableName] = {};
-                break;
             case "Literal":
-                input[arg.name] = {
-                    value: arg.value,
+                const fieldName = node.variableName || node.name;
+                schema[fieldName] = {
+                    type: "scalar",
+                    value: node.value,
                 };
                 break;
+
             case "ObjectValue":
-                input[arg.name] = loadInput(arg.fields);
-                break;
-            case "ListValue":
-                input[arg.name] = {
-                    items: loadInput(arg.items),
-                    repeated: true,
+                schema[node.name] = {
+                    type: "object",
+                    properties: parseInputSchema(node.fields),
                 };
                 break;
+
+            case "ListValue":
+                schema[node.name] = {
+                    type: "array",
+                    items: parseInputSchema(node.items),
+                };
+                break;
+
             default:
-                throw new Error(`Unhandled kind: ${spec.kind}`);
+                throw new Error(`Unhandled input node kind: ${node.kind}`);
         }
     }
 
-    return input;
+    return schema;
 }
 
-function loadOutput(spec) {
+function parseOutputSchema(nodes) {
+    const schema = {};
 
-}
+    for (const node of nodes || []) {
+        switch (node.kind) {
+            case "Fragment":
+                if (!node.selections?.length) return null;
 
-function loadRelayDefinitions() {
-    const relayFiles = {};
-    const modulesIDs = Object.keys(require('__debug')?.modulesMap || {})
-        .filter(moduleId => moduleId.endsWith(".graphql"))
+                Object.assign(schema, {
+                    type: "object",
+                    properties: parseOutputSchema(node.selections),
+                });
+                break;
 
-    for (const moduleId of modulesIDs) {
-        const fileName = moduleId
-            .replace(/^(WAWeb)/g, "")
-            .replace(".graphql", "");
+            case "LinkedField":
+                schema[node.name] = {
+                    type: node.plural ? "array" : "object",
+                    [node.plural ? "items" : "properties"]: parseOutputSchema(node.selections),
+                };
+                break;
 
-        const mod = require(moduleId);
+            case "ScalarField":
+                if (node.name === "__typename") continue;
 
-        if (!mod?.params?.id) continue;
-        if (fileName in relayFiles) continue;
+                schema[node.name] = { type: "scalar" };
+                break;
 
-        relayFiles[fileName] = mod;
+            case "RequiredField":
+                Object.assign(schema, parseOutputSchema([node.field]));
+                break;
+
+            case "Condition": {
+                const conditionalSchema = parseOutputSchema(node.selections);
+
+                Object.values(conditionalSchema).forEach(field => {
+                    field.condition = {
+                        [conditionalSchema.condition]: conditionalSchema.passingValue
+                    };
+                });
+
+                Object.assign(schema, conditionalSchema);
+                break;
+            }
+
+            case "InlineFragment":
+            case "InlineDataFragmentSpread":
+                Object.assign(schema, parseOutputSchema(node.selections));
+                break;
+
+            default:
+                throw new Error(`Unhandled output node kind: ${node.kind}`);
+        }
     }
 
-    return Object.values(relayFiles);
+    return schema;
 }
+
+console.log("GraphQlSchemas", graphqlSchemas);
+
+return graphqlSchemas;

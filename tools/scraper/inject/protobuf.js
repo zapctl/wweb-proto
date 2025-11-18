@@ -310,4 +310,6 @@ for (const protoName in protoFiles) {
     protoBufDefinitions[protoName] = protoContent;
 }
 
+console.log("ProtoBufDefinitions", protoBufDefinitions);
+
 return protoBufDefinitions;
