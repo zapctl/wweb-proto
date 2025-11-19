@@ -40,7 +40,7 @@ compile_proto() {
             protoc \
             --es_out $TS_OUT \
             --es_opt target=ts \
-            --proto_path $OUT_DIR/proto/ \
+            --proto_path $OUT_DIR/protobuf/ \
             "$protoFile"
         ) &
         pids+=($!)
