@@ -1,0 +1,29 @@
+{
+  "id": "9569660009784796",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_subscription_entrypoints": {
+        "type": "object",
+        "properties": {
+          "subscription_entrypoints": {
+            "type": "array",
+            "items": {
+              "subscription_type": {
+                "type": "scalar"
+              },
+              "web_entry_point_eligibility": {
+                "type": "scalar"
+              },
+              "web_entry_point_redirection_uri": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

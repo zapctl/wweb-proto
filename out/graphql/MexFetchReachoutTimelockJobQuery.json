@@ -1,0 +1,24 @@
+{
+  "id": "23983697327930364",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_fetch_account_reachout_timelock": {
+        "type": "object",
+        "properties": {
+          "is_active": {
+            "type": "scalar"
+          },
+          "time_enforcement_ends": {
+            "type": "scalar"
+          },
+          "enforcement_type": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

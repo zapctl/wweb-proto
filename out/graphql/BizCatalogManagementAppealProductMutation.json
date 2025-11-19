@@ -1,0 +1,25 @@
+{
+  "id": "29276343172013990",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_whatsapp_catalog_appeal_product": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

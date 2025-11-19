@@ -1,0 +1,262 @@
+{
+  "id": "24249359867999500",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_whatsapp_catalog_add_product": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "type": "object",
+            "properties": {
+              "availability": {
+                "type": "scalar"
+              },
+              "belongs_to": {
+                "type": "scalar"
+              },
+              "compliance_category": {
+                "type": "scalar"
+              },
+              "compliance_info": {
+                "type": "object",
+                "properties": {
+                  "country_code_origin": {
+                    "type": "scalar"
+                  },
+                  "importer_address": {
+                    "type": "object",
+                    "properties": {
+                      "city": {
+                        "type": "scalar"
+                      },
+                      "country_code": {
+                        "type": "scalar"
+                      },
+                      "postal_code": {
+                        "type": "scalar"
+                      },
+                      "region": {
+                        "type": "scalar"
+                      },
+                      "street1": {
+                        "type": "scalar"
+                      },
+                      "street2": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "importer_name": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "currency": {
+                "type": "scalar"
+              },
+              "description": {
+                "type": "scalar"
+              },
+              "id": {
+                "type": "scalar"
+              },
+              "is_hidden": {
+                "type": "scalar"
+              },
+              "is_sanctioned": {
+                "type": "scalar"
+              },
+              "max_available": {
+                "type": "scalar"
+              },
+              "media": {
+                "type": "object",
+                "properties": {
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "original_image_url": {
+                        "type": "scalar"
+                      },
+                      "request_image_url": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "videos": {
+                    "type": "array",
+                    "items": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "original_video_url": {
+                        "type": "scalar"
+                      },
+                      "thumbnail_url": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "name": {
+                "type": "scalar"
+              },
+              "price": {
+                "type": "scalar"
+              },
+              "retailer_id": {
+                "type": "scalar"
+              },
+              "sale_price": {
+                "type": "object",
+                "properties": {
+                  "end_date": {
+                    "type": "scalar"
+                  },
+                  "price": {
+                    "type": "scalar"
+                  },
+                  "start_date": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "status": {
+                "type": "scalar"
+              },
+              "status_info": {
+                "type": "object",
+                "properties": {
+                  "can_appeal": {
+                    "type": "scalar"
+                  },
+                  "status": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "url": {
+                "type": "scalar"
+              },
+              "shimmed_url": {
+                "type": "scalar"
+              },
+              "variant_info": {
+                "type": "object",
+                "properties": {
+                  "listing_details": {
+                    "type": "object",
+                    "properties": {
+                      "description": {
+                        "type": "scalar"
+                      },
+                      "multi_price": {
+                        "type": "scalar"
+                      },
+                      "lowest_price": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "availability": {
+                    "type": "object",
+                    "properties": {
+                      "listing": {
+                        "type": "array",
+                        "items": {
+                          "is_available": {
+                            "type": "scalar"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "name": {
+                                "type": "scalar"
+                              },
+                              "value": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "product_id": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "types": {
+                    "type": "array",
+                    "items": {
+                      "name": {
+                        "type": "scalar"
+                      },
+                      "options": {
+                        "type": "array",
+                        "items": {
+                          "value": {
+                            "type": "scalar"
+                          },
+                          "thumbnail_media": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "scalar"
+                              },
+                              "original_dimensions": {
+                                "type": "object",
+                                "properties": {
+                                  "height": {
+                                    "type": "scalar"
+                                  },
+                                  "width": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "original_image_url": {
+                                "type": "scalar"
+                              },
+                              "request_image_url": {
+                                "type": "scalar"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "variant_properties": {
+                    "type": "array",
+                    "items": {
+                      "name": {
+                        "type": "scalar"
+                      },
+                      "value": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "24503548349331633",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_message_capping_info": {
+        "type": "object",
+        "properties": {
+          "total_quota": {
+            "type": "scalar"
+          },
+          "used_quota": {
+            "type": "scalar"
+          },
+          "cycle_start_timestamp": {
+            "type": "scalar"
+          },
+          "cycle_end_timestamp": {
+            "type": "scalar"
+          },
+          "server_sent_timestamp": {
+            "type": "scalar"
+          },
+          "ote_status": {
+            "type": "scalar"
+          },
+          "mv_status": {
+            "type": "scalar"
+          },
+          "capping_status": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

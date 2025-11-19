@@ -1,0 +1,74 @@
+{
+  "id": "9885518901479028",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletters_similar": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "thread_metadata": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "text": {
+                        "type": "scalar"
+                      },
+                      "update_time": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "picture": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "type": {
+                        "type": "scalar"
+                      },
+                      "direct_path": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "verification": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "state": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

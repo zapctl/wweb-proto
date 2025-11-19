@@ -1,0 +1,25 @@
+{
+  "id": "9797519763673469",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_whatsapp_smb_commerce_settings": {
+        "type": "object",
+        "properties": {
+          "cart_enabled": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

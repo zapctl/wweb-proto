@@ -1,0 +1,64 @@
+{
+  "id": "24088996777386308",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_channels_reports": {
+        "type": "object",
+        "properties": {
+          "channels_reports": {
+            "type": "array",
+            "items": {
+              "report_id": {
+                "type": "scalar"
+              },
+              "status": {
+                "type": "scalar"
+              },
+              "creation_time": {
+                "type": "scalar"
+              },
+              "last_update_time": {
+                "type": "scalar"
+              },
+              "channel_name": {
+                "type": "scalar"
+              },
+              "channel_jid": {
+                "type": "scalar"
+              },
+              "server_msg_id": {
+                "type": "scalar"
+              },
+              "response_server_msg_id": {
+                "type": "scalar"
+              },
+              "notify_name": {
+                "type": "scalar"
+              },
+              "appeal": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "scalar"
+                  },
+                  "appeal_reason": {
+                    "type": "scalar"
+                  },
+                  "creation_time": {
+                    "type": "scalar"
+                  },
+                  "report_id": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "24250201037901610",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      },
+      "updates": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_update": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "scalar"
+              }
+            }
+          },
+          "thread_metadata": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "picture": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "type": {
+                    "type": "scalar"
+                  },
+                  "direct_path": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "invite": {
+                "type": "scalar"
+              },
+              "handle": {
+                "type": "scalar"
+              },
+              "verification": {
+                "type": "scalar"
+              },
+              "creation_time": {
+                "type": "scalar"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "reaction_codes": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

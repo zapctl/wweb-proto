@@ -1,0 +1,31 @@
+{
+  "id": "24541201322134132",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "consumer_lid": {
+        "type": "scalar"
+      },
+      "phone_number": {
+        "type": "scalar"
+      },
+      "thread_status": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_whatsapp_smb_maiba_status_update": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

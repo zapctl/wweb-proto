@@ -1,0 +1,74 @@
+{
+  "id": "29829202653362039",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "include_about_status": {
+        "type": "scalar"
+      },
+      "include_country_code": {
+        "type": "scalar"
+      },
+      "include_username": {
+        "type": "scalar"
+      },
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_fetch_wa_users": {
+        "type": "array",
+        "items": {
+          "jid": {
+            "type": "scalar"
+          },
+          "country_code": {
+            "type": "scalar",
+            "condition": {}
+          },
+          "username_info": {
+            "type": "object",
+            "properties": {
+              "username": {
+                "type": "scalar"
+              },
+              "state": {
+                "type": "scalar"
+              },
+              "timestamp": {
+                "type": "scalar"
+              },
+              "pin": {
+                "type": "scalar"
+              },
+              "status": {
+                "type": "scalar"
+              }
+            },
+            "condition": {}
+          },
+          "about_status_info": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "scalar"
+              },
+              "timestamp": {
+                "type": "scalar"
+              },
+              "status": {
+                "type": "scalar"
+              }
+            },
+            "condition": {}
+          }
+        }
+      }
+    }
+  }
+}

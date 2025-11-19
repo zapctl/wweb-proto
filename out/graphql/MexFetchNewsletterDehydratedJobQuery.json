@@ -1,0 +1,70 @@
+{
+  "id": "30328461880085868",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "fetch_wamo_sub": {
+        "type": "scalar"
+      },
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "thread_metadata": {
+            "type": "object",
+            "properties": {
+              "subscribers_count": {
+                "type": "scalar"
+              },
+              "verification": {
+                "type": "scalar"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "reaction_codes": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "wamo_sub": {
+                "type": "object",
+                "properties": {
+                  "plan_id": {
+                    "type": "scalar"
+                  }
+                },
+                "condition": {}
+              }
+            }
+          },
+          "viewer_metadata": {
+            "type": "object",
+            "properties": {
+              "wamo_sub_status": {
+                "type": "scalar"
+              }
+            },
+            "condition": {}
+          }
+        }
+      }
+    }
+  }
+}

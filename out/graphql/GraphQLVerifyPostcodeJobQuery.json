@@ -1,0 +1,33 @@
+{
+  "id": "WAWebGraphQLVerifyPostcodeJobQuery",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_product_catalog_get_verify_postcode": {
+        "type": "object",
+        "properties": {
+          "postcode_verification_result": {
+            "type": "object",
+            "properties": {
+              "result_code": {
+                "type": "scalar"
+              },
+              "encrypted_location_name": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

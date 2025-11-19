@@ -1,0 +1,18 @@
+{
+  "id": "9587446314672913",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_username_get": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "9749436995157074",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "pin": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_username_pin_set": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "29247029834912157",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "scalar"
+      },
+      "query_context": {
+        "type": "scalar"
+      },
+      "group_input": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "query_context": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_group_query_by_id": {
+        "type": "object",
+        "properties": {
+          "invite_code": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

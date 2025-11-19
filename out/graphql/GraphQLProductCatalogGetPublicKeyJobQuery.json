@@ -1,0 +1,36 @@
+{
+  "id": "WAWebGraphQLProductCatalogGetPublicKeyJobQuery",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_product_catalog_get_public_key": {
+        "type": "object",
+        "properties": {
+          "public_key_certificate_pem": {
+            "type": "scalar"
+          },
+          "public_key_with_signature": {
+            "type": "object",
+            "properties": {
+              "public_key_pem": {
+                "type": "scalar"
+              },
+              "public_key_signature": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

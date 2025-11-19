@@ -1,0 +1,73 @@
+{
+  "id": "9475021792620702",
+  "type": "mutation",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "waffle_fx_service_data": {
+        "type": "object",
+        "properties": {
+          "services": {
+            "type": "object",
+            "properties": {
+              "waffle_sxs": {
+                "type": "array",
+                "items": {
+                  "waffle_di": {
+                    "type": "scalar"
+                  },
+                  "waffle_da": {
+                    "type": "scalar"
+                  },
+                  "waffle_xss": {
+                    "type": "array",
+                    "items": {
+                      "waffle_iaxe": {
+                        "type": "scalar"
+                      },
+                      "waffle_x_surface": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "waffle_afs": {
+                "type": "object",
+                "properties": {
+                  "waffle_wes": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "foa_to_wa_link_eligibility": {
+                "type": "object",
+                "properties": {
+                  "is_eligible_to_link_to_unlinked_fb": {
+                    "type": "scalar"
+                  },
+                  "is_eligible_to_link_to_linked_fb": {
+                    "type": "scalar"
+                  },
+                  "is_eligible_to_link_to_unlinked_ig": {
+                    "type": "scalar"
+                  },
+                  "is_eligible_to_link_to_linked_ig": {
+                    "type": "scalar"
+                  },
+                  "is_eligible_to_link_to_unlinked_rl": {
+                    "type": "scalar"
+                  },
+                  "is_eligible_to_link_to_linked_rl": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

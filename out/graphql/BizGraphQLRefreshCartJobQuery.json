@@ -1,0 +1,298 @@
+{
+  "id": "WAWebBizGraphQLRefreshCartJobQuery",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_checkout_refresh_cart": {
+        "type": "object",
+        "properties": {
+          "cart": {
+            "type": "object",
+            "properties": {
+              "products": {
+                "type": "array",
+                "items": {
+                  "is_hidden": {
+                    "type": "scalar"
+                  },
+                  "availability": {
+                    "type": "scalar"
+                  },
+                  "product_availability": {
+                    "type": "scalar"
+                  },
+                  "status_info": {
+                    "type": "object",
+                    "properties": {
+                      "reject_reason": {
+                        "type": "scalar"
+                      },
+                      "status": {
+                        "type": "scalar"
+                      },
+                      "can_appeal": {
+                        "type": "scalar"
+                      },
+                      "commerce_url": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "image_fetch_status": {
+                    "type": "scalar"
+                  },
+                  "price": {
+                    "type": "scalar"
+                  },
+                  "currency": {
+                    "type": "scalar"
+                  },
+                  "retailer_id": {
+                    "type": "scalar"
+                  },
+                  "name": {
+                    "type": "scalar"
+                  },
+                  "description": {
+                    "type": "scalar"
+                  },
+                  "url": {
+                    "type": "scalar"
+                  },
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "media": {
+                    "type": "object",
+                    "properties": {
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "request_image_url": {
+                            "type": "scalar"
+                          },
+                          "original_dimensions": {
+                            "type": "object",
+                            "properties": {
+                              "height": {
+                                "type": "scalar"
+                              },
+                              "width": {
+                                "type": "scalar"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "videos": {
+                        "type": "array",
+                        "items": {
+                          "thumbnail_url": {
+                            "type": "scalar"
+                          },
+                          "original_video_url": {
+                            "type": "scalar"
+                          },
+                          "id": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "sale_price": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "scalar"
+                      },
+                      "start_date": {
+                        "type": "scalar"
+                      },
+                      "end_date": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "max_available": {
+                    "type": "scalar"
+                  },
+                  "belongs_to": {
+                    "type": "scalar"
+                  },
+                  "status": {
+                    "type": "scalar"
+                  },
+                  "compliance_category": {
+                    "type": "scalar"
+                  },
+                  "compliance_info": {
+                    "type": "object",
+                    "properties": {
+                      "country_code_origin": {
+                        "type": "scalar"
+                      },
+                      "importer_name": {
+                        "type": "scalar"
+                      },
+                      "importer_address": {
+                        "type": "object",
+                        "properties": {
+                          "street1": {
+                            "type": "scalar"
+                          },
+                          "street2": {
+                            "type": "scalar"
+                          },
+                          "city": {
+                            "type": "scalar"
+                          },
+                          "region": {
+                            "type": "scalar"
+                          },
+                          "postal_code": {
+                            "type": "scalar"
+                          },
+                          "country_code": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "variant_info": {
+                    "type": "object",
+                    "properties": {
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "name": {
+                            "type": "scalar"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "value": {
+                                "type": "scalar"
+                              },
+                              "thumbnail_media": {
+                                "type": "object",
+                                "properties": {
+                                  "original_dimensions": {
+                                    "type": "object",
+                                    "properties": {
+                                      "width": {
+                                        "type": "scalar"
+                                      },
+                                      "height": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "request_image_url": {
+                                    "type": "scalar"
+                                  },
+                                  "original_image_url": {
+                                    "type": "scalar"
+                                  },
+                                  "id": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "listing_details": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "scalar"
+                          },
+                          "multi_price": {
+                            "type": "scalar"
+                          },
+                          "lowest_price": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "variant_properties": {
+                        "type": "array",
+                        "items": {
+                          "value": {
+                            "type": "scalar"
+                          },
+                          "name": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "availability": {
+                        "type": "object",
+                        "properties": {
+                          "listing": {
+                            "type": "array",
+                            "items": {
+                              "is_available": {
+                                "type": "scalar"
+                              },
+                              "product_id": {
+                                "type": "scalar"
+                              },
+                              "options": {
+                                "type": "array",
+                                "items": {
+                                  "name": {
+                                    "type": "scalar"
+                                  },
+                                  "value": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "price_details": {
+                "type": "object",
+                "properties": {
+                  "total": {
+                    "type": "scalar"
+                  },
+                  "subtotal": {
+                    "type": "scalar"
+                  },
+                  "currency": {
+                    "type": "scalar"
+                  },
+                  "price_status": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

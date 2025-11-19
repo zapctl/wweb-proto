@@ -1,0 +1,28 @@
+{
+  "id": "9387141988078609",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      },
+      "user_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin_invite_create": {
+        "type": "object",
+        "properties": {
+          "invite_expiration_time": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

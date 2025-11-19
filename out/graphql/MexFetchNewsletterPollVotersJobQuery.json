@@ -1,0 +1,51 @@
+{
+  "id": "9407762219322536",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletters_poll_voter_list": {
+        "type": "object",
+        "properties": {
+          "votes": {
+            "type": "array",
+            "items": {
+              "vote_hash": {
+                "type": "scalar"
+              },
+              "voter_list": {
+                "type": "object",
+                "properties": {
+                  "edges": {
+                    "type": "array",
+                    "items": {
+                      "action_time": {
+                        "type": "scalar"
+                      },
+                      "node": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

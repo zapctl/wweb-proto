@@ -1,0 +1,275 @@
+{
+  "id": "9916553288394782",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_product_catalog_get_product_catalog": {
+        "type": "object",
+        "properties": {
+          "product_catalog": {
+            "type": "object",
+            "properties": {
+              "products": {
+                "type": "array",
+                "items": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "retailer_id": {
+                    "type": "scalar"
+                  },
+                  "is_hidden": {
+                    "type": "scalar"
+                  },
+                  "is_sanctioned": {
+                    "type": "scalar"
+                  },
+                  "product_availability": {
+                    "type": "scalar"
+                  },
+                  "max_available": {
+                    "type": "scalar"
+                  },
+                  "name": {
+                    "type": "scalar"
+                  },
+                  "description": {
+                    "type": "scalar"
+                  },
+                  "url": {
+                    "type": "scalar"
+                  },
+                  "shimmed_url": {
+                    "type": "scalar"
+                  },
+                  "currency": {
+                    "type": "scalar"
+                  },
+                  "price": {
+                    "type": "scalar"
+                  },
+                  "status_info": {
+                    "type": "object",
+                    "properties": {
+                      "can_appeal": {
+                        "type": "scalar"
+                      },
+                      "status": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "sale_price": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "scalar"
+                      },
+                      "start_date": {
+                        "type": "scalar"
+                      },
+                      "end_date": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "media": {
+                    "type": "object",
+                    "properties": {
+                      "images": {
+                        "type": "array",
+                        "items": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "original_image_url": {
+                            "type": "scalar"
+                          },
+                          "request_image_url": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "videos": {
+                        "type": "array",
+                        "items": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "original_video_url": {
+                            "type": "scalar"
+                          },
+                          "thumbnail_url": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "belongs_to": {
+                    "type": "scalar"
+                  },
+                  "compliance_category": {
+                    "type": "scalar"
+                  },
+                  "compliance_info": {
+                    "type": "object",
+                    "properties": {
+                      "country_code_origin": {
+                        "type": "scalar"
+                      },
+                      "importer_name": {
+                        "type": "scalar"
+                      },
+                      "importer_address": {
+                        "type": "object",
+                        "properties": {
+                          "street1": {
+                            "type": "scalar"
+                          },
+                          "street2": {
+                            "type": "scalar"
+                          },
+                          "postal_code": {
+                            "type": "scalar"
+                          },
+                          "city": {
+                            "type": "scalar"
+                          },
+                          "region": {
+                            "type": "scalar"
+                          },
+                          "country_code": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "variant_info": {
+                    "type": "object",
+                    "properties": {
+                      "listing_details": {
+                        "type": "object",
+                        "properties": {
+                          "description": {
+                            "type": "scalar"
+                          },
+                          "multi_price": {
+                            "type": "scalar"
+                          },
+                          "lowest_price": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "availability": {
+                        "type": "object",
+                        "properties": {
+                          "listing": {
+                            "type": "array",
+                            "items": {
+                              "is_available": {
+                                "type": "scalar"
+                              },
+                              "options": {
+                                "type": "array",
+                                "items": {
+                                  "name": {
+                                    "type": "scalar"
+                                  },
+                                  "value": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "product_id": {
+                                "type": "scalar"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "name": {
+                            "type": "scalar"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "value": {
+                                "type": "scalar"
+                              },
+                              "thumbnail_media": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "scalar"
+                                  },
+                                  "original_dimensions": {
+                                    "type": "object",
+                                    "properties": {
+                                      "height": {
+                                        "type": "scalar"
+                                      },
+                                      "width": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "original_image_url": {
+                                    "type": "scalar"
+                                  },
+                                  "request_image_url": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "variant_properties": {
+                        "type": "array",
+                        "items": {
+                          "name": {
+                            "type": "scalar"
+                          },
+                          "value": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "paging": {
+                "type": "object",
+                "properties": {
+                  "before": {
+                    "type": "scalar"
+                  },
+                  "after": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

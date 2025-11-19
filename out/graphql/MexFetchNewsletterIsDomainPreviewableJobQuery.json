@@ -1,0 +1,41 @@
+{
+  "id": "9849510985088294",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "url_domains": {
+        "type": "scalar"
+      },
+      "input": {
+        "type": "object",
+        "properties": {
+          "url_domains": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_message_integrity": {
+        "type": "object",
+        "properties": {
+          "url_previews": {
+            "type": "array",
+            "items": {
+              "url_domain": {
+                "type": "scalar"
+              },
+              "is_previewable": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

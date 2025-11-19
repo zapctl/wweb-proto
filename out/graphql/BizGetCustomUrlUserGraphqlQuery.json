@@ -1,0 +1,39 @@
+{
+  "id": "WAWebBizGetCustomUrlUserGraphqlQuery",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_custom_url_get_user": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          },
+          "user": {
+            "type": "object",
+            "properties": {
+              "jid": {
+                "type": "scalar"
+              }
+            }
+          },
+          "error_code": {
+            "type": "scalar"
+          },
+          "error_text": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

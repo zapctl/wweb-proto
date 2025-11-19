@@ -1,0 +1,122 @@
+{
+  "id": "10041060382573821",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_subscribed": {
+        "type": "array",
+        "items": {
+          "id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "scalar"
+              }
+            }
+          },
+          "thread_metadata": {
+            "type": "object",
+            "properties": {
+              "creation_time": {
+                "type": "scalar"
+              },
+              "name": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "picture": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "type": {
+                    "type": "scalar"
+                  },
+                  "direct_path": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "invite": {
+                "type": "scalar"
+              },
+              "handle": {
+                "type": "scalar"
+              },
+              "verification": {
+                "type": "scalar"
+              },
+              "settings": {
+                "type": "object",
+                "properties": {
+                  "reaction_codes": {
+                    "type": "object",
+                    "properties": {
+                      "value": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "wamo_sub": {
+                "type": "object",
+                "properties": {
+                  "plan_id": {
+                    "type": "scalar"
+                  }
+                },
+                "condition": {}
+              }
+            }
+          },
+          "viewer_metadata": {
+            "type": "object",
+            "properties": {
+              "mute": {
+                "type": "scalar"
+              },
+              "role": {
+                "type": "scalar"
+              },
+              "wamo_sub_status": {
+                "type": "scalar",
+                "condition": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

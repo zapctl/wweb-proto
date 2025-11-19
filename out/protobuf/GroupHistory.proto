@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+import "Web.proto";
+import "Protocol.proto";
+
+message GroupHistory {
+	repeated WebMessageInfo messages = 1;
+	repeated AssociatedMessageList associatedMessageLists = 2;
+	repeated WebMessageInfo commentMessages = 3;
+}
+
+message AssociatedMessageList {
+	repeated WebMessageInfo messages = 1;
+	optional MessageKey parentMessage = 2;
+	optional int32 associationType = 3;
+}
