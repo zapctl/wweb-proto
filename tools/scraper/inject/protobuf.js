@@ -271,8 +271,6 @@ function serializeNode(node, level = 0) {
 
     if (childNodesSpecs.length > 0) nodeProto += `\n${childNodesSpecs}\n`;
 
-    if (!nodeProto.length) return "";
-
     nodeProto = `${node.type} ${node.name} {${nodeProto}}`;
     if (level > 0) nodeProto = nodeProto.replace(/(^|\n)/g, `$1\t`);
 
