@@ -261,7 +261,9 @@ function serializeNode(node, level = 0) {
             })
             .filter(spec => !!spec);
 
-        if (enumSpecs.length > 0) nodeProto += `\n\t${enumSpecs.join("\n\t")}\n`;
+        if (!enumSpecs.length > 0) return;
+
+        nodeProto += `\n\t${enumSpecs.join("\n\t")}\n`;
     }
 
     const childNodesSpecs = node.children
