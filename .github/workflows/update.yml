@@ -61,7 +61,7 @@ jobs:
           echo "Newest WhatsApp Web version: $NEWEST_WA_VERSION"
           echo "Newest proto md5: $NEWEST_WA_PROTO_MD5"
         env:
-          OUT_DIR: ${{ github.workspace }}/out/proto
+          OUT_DIR: ${{ github.workspace }}/out
 
       - name: Check if package update is needed
         run: |
