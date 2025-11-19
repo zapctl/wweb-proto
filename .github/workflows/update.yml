@@ -28,8 +28,8 @@ jobs:
         run: |
           mkdir -p out/packages
 
-          [ -r out/proto/.version ] && WA_VERSION=$(cat out/proto/.version)
-          [ -r out/proto/.md5 ] && WA_PROTO_MD5=$(cat out/proto/.md5)
+          [ -r out/.version ] && WA_VERSION=$(cat out/.version)
+          [ -r out/.md5 ] && WA_PROTO_MD5=$(cat out/.md5)
 
           echo "WA_VERSION=$WA_VERSION" >> $GITHUB_ENV
           echo "WA_PROTO_MD5=$WA_PROTO_MD5" >> $GITHUB_ENV
@@ -46,8 +46,14 @@ jobs:
         run: |
           node tools/scraper
 
-          NEWEST_WA_VERSION=$(cat out/proto/.version)
-          NEWEST_WA_PROTO_MD5=$(cat out/proto/.md5)
+          find out -type f ! -name '.*' -exec md5sum {} + \
+            | sort \
+            | md5sum \
+            | tr -d ' \n-' \
+            > out/.md5
+
+          NEWEST_WA_VERSION=$(cat out/.version)
+          NEWEST_WA_PROTO_MD5=$(cat out/.md5)
 
           echo "NEWEST_WA_VERSION=$NEWEST_WA_VERSION" >> $GITHUB_ENV
           echo "NEWEST_WA_PROTO_MD5=$NEWEST_WA_PROTO_MD5" >> $GITHUB_ENV
