@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROTO_DIR=$OUT_DIR/proto
+PROTO_DIR=$OUT_DIR/protobuf
 OUT=$OUT_DIR/packages/nodejs
 TS_OUT=$OUT/ts
 TYPES_OUT=$OUT/types
@@ -40,7 +40,7 @@ compile_proto() {
             protoc \
             --es_out $TS_OUT \
             --es_opt target=ts \
-            --proto_path $OUT_DIR/protobuf/ \
+            --proto_path $PROTO_DIR \
             "$protoFile"
         ) &
         pids+=($!)
