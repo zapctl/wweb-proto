@@ -14,13 +14,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           cache: npm
-          node-version: 20
+          node-version: 24
           registry-url: "https://registry.npmjs.org"
           cache-dependency-path: tools/scraper/package-lock.json
 
@@ -28,14 +28,14 @@ jobs:
         run: |
           mkdir -p out/packages
 
-          [ -r out/.version ] && WA_VERSION=$(cat out/.version)
-          [ -r out/.md5 ] && WA_PROTO_MD5=$(cat out/.md5)
+          [ -r out/.version ] && VERSION=$(cat out/.version)
+          [ -r out/.md5 ] && ARTIFACTS_HASH=$(cat out/.md5)
 
-          echo "WA_VERSION=$WA_VERSION" >> $GITHUB_ENV
-          echo "WA_PROTO_MD5=$WA_PROTO_MD5" >> $GITHUB_ENV
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          echo "ARTIFACTS_HASH=${ARTIFACTS_HASH}" >> $GITHUB_ENV
 
-          echo "Current WhatsApp Web version: $WA_VERSION"
-          echo "Current proto md5: $WA_PROTO_MD5"
+          echo "Current WhatsApp Web version: ${VERSION:-none}"
+          echo "Current artifacts md5: ${ARTIFACTS_HASH:-none}"
 
       - name: Install scraper dependencies
         run: |
@@ -46,39 +46,35 @@ jobs:
         run: |
           node tools/scraper
 
-          find out -type f ! -name '.*' -exec md5sum {} + \
-            | sort \
-            | md5sum \
-            | tr -d ' \n-' \
-            > out/.md5
+          NEWEST_VERSION=$(cat out/.version)
+          NEWEST_ARTIFACTS_HASH=$(find out -type f ! -name '.*' -exec md5sum {} + | sort | md5sum | tr -d ' \n-')
+          NEWEST_BUILD_HASH=$(echo -n "$NEWEST_VERSION" | md5sum | cut -d' ' -f1)
 
-          NEWEST_WA_VERSION=$(cat out/.version)
-          NEWEST_WA_PROTO_MD5=$(cat out/.md5)
+          echo $NEWEST_ARTIFACTS_HASH > out/.md5
 
-          echo "NEWEST_WA_VERSION=$NEWEST_WA_VERSION" >> $GITHUB_ENV
-          echo "NEWEST_WA_PROTO_MD5=$NEWEST_WA_PROTO_MD5" >> $GITHUB_ENV
+          echo "NEWEST_VERSION=$NEWEST_VERSION" >> $GITHUB_ENV
+          echo "NEWEST_BUILD_HASH=$NEWEST_BUILD_HASH" >> $GITHUB_ENV
+          echo "NEWEST_ARTIFACTS_HASH=$NEWEST_ARTIFACTS_HASH" >> $GITHUB_ENV
 
-          echo "Newest WhatsApp Web version: $NEWEST_WA_VERSION"
-          echo "Newest proto md5: $NEWEST_WA_PROTO_MD5"
-        env:
-          OUT_DIR: ${{ github.workspace }}/out
+          echo "Newest WhatsApp Web version: $NEWEST_VERSION"
+          echo "Newest proto md5: $NEWEST_ARTIFACTS_HASH"
 
       - name: Check if package update is needed
         run: |
-          if [[ "${{ env.WA_PROTO_MD5 }}" == "${{ env.NEWEST_WA_PROTO_MD5 }}" ]]; then
-            echo "Proto md5 are the same."
-          elif [[ "${{ env.WA_VERSION }}" == "${{ env.NEWEST_WA_VERSION }}" ]]; then
-            echo "WhatsApp Web version are the same."
+          if [[ "${{ env.ARTIFACTS_HASH }}" == "${{ env.NEWEST_ARTIFACTS_HASH }}" ]]; then
+            echo "No update needed - artifacts hash is the same."
+          elif [[ "${{ env.VERSION }}" == "${{ env.NEWEST_VERSION }}" ]]; then
+            echo "Cannot update - version is the same but artifacts differ. Need new WhatsApp Web version."
           else
-            echo "Versions are different."
+            echo "Update needed - both version and artifacts are different."
             echo "package_update_needed=true" >> $GITHUB_ENV
           fi
 
       - name: Install packager dependencies
         if: env.package_update_needed == 'true'
         run: |
+          sudo apt-get update
           sudo apt-get install -y protobuf-compiler
-          npm install -g typescript uglify-js @bufbuild/protoc-gen-es@1.10.0
 
       - name: Generate packages
         if: env.package_update_needed == 'true'
@@ -108,5 +104,5 @@ jobs:
         if: env.package_update_needed == 'true'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "WhatsApp Web v${{ env.NEWEST_WA_VERSION }}"
-          tagging_message: "v${{ env.NEWEST_WA_VERSION }}"
+          commit_message: "WhatsApp Web v${{ env.NEWEST_VERSION }}"
+          tagging_message: "v${{ env.NEWEST_VERSION }}"

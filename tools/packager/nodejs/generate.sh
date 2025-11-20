@@ -10,30 +10,38 @@ ESM_OUT=$OUT/esm
 tsIndexPath=$TS_OUT/index.ts
 
 setup() {
-    echo "Setup..."
+    echo "Installing dependencies..."
+    npm install -g typescript uglify-js @bufbuild/protoc-gen-es@1.10.0
     
+    echo "Cleaning and creating directories..."
     rm -rf $OUT
-    
     mkdir -p $OUT
     mkdir $TS_OUT
     mkdir $TYPES_OUT
     mkdir $ESM_OUT
     mkdir $CJS_OUT
     
+    echo "Copying package files..."
     cp package.json $OUT/package.json
     cp readme.md $OUT/readme.md
     
-    sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/package.json
-    sed -i 's/{{WA_VERSION}}/'"$NEWEST_WA_VERSION"'/g' $OUT/readme.md
+    echo "Injecting version $NEWEST_VERSION..."
+    sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/package.json
+    sed -i 's/{{WA_VERSION}}/'"$NEWEST_VERSION"'/g' $OUT/readme.md
+    
+    echo "Setup completed"
+}
+
+generate_index() {
+    echo "Generating index file..."
+    echo "" > $tsIndexPath
+    echo "export const VERSION = '$NEWEST_VERSION';" >> $tsIndexPath
+    echo "export const BUILD_HASH = '$NEWEST_BUILD_HASH';" >> $tsIndexPath
+    echo "Index file generated"
 }
 
 compile_proto() {
-    echo "" > $tsIndexPath
-    echo "export const HASH = '$NEWEST_WA_PROTO_MD5';" >> $tsIndexPath
-    echo "export const VERSION = '$NEWEST_WA_VERSION';" >> $tsIndexPath
-
-    echo "Generated index"
-
+    echo "Compiling proto files..."
     pids=()
     for protoFile in $PROTO_DIR/*.proto; do
         (
@@ -48,15 +56,16 @@ compile_proto() {
 
     for pid in "${pids[@]}"; do
         wait $pid || {
-            echo "A protoc compilation failed!"
+            echo "Error: protoc compilation failed"
             exit 1
         }
     done
 
-    echo "Compiled protocol buffers"
+    echo "Proto compilation completed"
 }
 
 compile_js() {
+    echo "Compiling TypeScript files..."
     tsFilesArray=($TS_OUT/*.ts)
     tsFilesStr=${tsFilesArray[@]}
     pids=()
@@ -64,58 +73,63 @@ compile_js() {
     (
         set -e
         tsc $tsFilesStr --declaration --emitDeclarationOnly --noCheck --outdir $TYPES_OUT
-        echo "Compiled types"
+        echo "  ✓ Types compiled"
     ) &
     pids+=($!)
     
     (
         set -e
         tsc $tsFilesStr --module commonjs --target es2022 --noCheck --outdir $CJS_OUT
-        echo "Compiled commonjs"
+        echo "  ✓ CommonJS compiled"
     ) &
     pids+=($!)
     
     (
         set -e
         tsc $tsFilesStr --module esnext --target es2022 --noCheck --outdir $ESM_OUT
-        echo "Compiled esm"
+        echo "  ✓ ESM compiled"
     ) &
     pids+=($!)
     
     for pid in "${pids[@]}"; do
         wait $pid || {
-            echo "A task in compile_ts failed!"
+            echo "Error: TypeScript compilation failed"
             exit 1
         }
     done
     
+    echo "Removing temporary TypeScript files..."
     rm -rf $TS_OUT
+    echo "JavaScript compilation completed"
 }
 
 minify() {
+    echo "Minifying JavaScript files..."
     pids=()
+    
     for filePath in $CJS_OUT/*.js $ESM_OUT/*.js; do
         (
             uglifyjs $filePath \
             --compress \
             -o $filePath
-
-            echo Minified "$filePath"
         ) &
         pids+=($!)
     done
-
+    
     for pid in "${pids[@]}"; do
         wait $pid || {
-            echo "A minify task failed!"
+            echo "Error: Minification failed"
             exit 1
         }
     done
+    
+    echo "Minification completed"
 }
 
 set -e
 
 setup
+generate_index
 compile_proto
 compile_js
-# minify
+minify

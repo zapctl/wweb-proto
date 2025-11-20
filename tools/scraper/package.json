@@ -1,5 +1,5 @@
 {
-  "name": "wweb-proto-scraper",
+  "name": "wa-proto-scraper",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -10,6 +10,6 @@
   "author": "João Vitor Machado",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^24.11.2"
+    "puppeteer": "^24.31.0"
   }
 }

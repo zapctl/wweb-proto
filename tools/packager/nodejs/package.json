@@ -1,5 +1,5 @@
 {
-  "name": "wweb-proto",
+  "name": "wa-proto",
   "description": "WhatsApp Web Protocol Buffers",
   "version": "{{WA_VERSION}}",
   "private": false,
@@ -24,17 +24,18 @@
   "keywords": [
     "whatsapp",
     "protobuf",
+    "graphql",
     "typescript"
   ],
   "license": "MIT",
-  "author": "João Vitor Machado <joaovmachado10@gmail.com>",
-  "homepage": "https://github.com/zapctl/wweb-proto",
+  "author": "João Vitor Machado <joaov@zapctl.dev>",
+  "homepage": "https://github.com/zapctl/wa-proto",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zapctl/wweb-proto.git"
+    "url": "git+https://github.com/zapctl/wa-proto.git"
   },
   "bugs": {
-    "url": "https://github.com/zapctl/wweb-proto/issues"
+    "url": "https://github.com/zapctl/wa-proto/issues"
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.10.0"

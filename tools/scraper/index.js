@@ -9,8 +9,6 @@ const __dirname = path.dirname(__filename);
 const IS_DEBUG =process.env.NODE_ENV === "development";
 const OUT_DIR = process.env.OUT_DIR || "./out";
 
-if (!OUT_DIR) throw new Error("missing OUT_DIR");
-
 const VERSION_PATH = path.join(OUT_DIR, ".version");
 const PROTOBUF_DIR = path.join(OUT_DIR, "/protobuf");
 const GRAPHQL_DIR = path.join(OUT_DIR, "/graphql");

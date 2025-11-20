@@ -1,16 +1,16 @@
-# WhatsApp Web Protobuf Extractor
+# wa-proto
 
-This project is designed to monitor updates to WhatsApp Web and extract its protobuf file, providing extracted protobuf definitions.
+This project monitors updates to WhatsApp Web and extracts protocol definitions including protobuf schemas and constants for use in WhatsApp automation.
 
 ## Features
 
 - Monitors updates to WhatsApp Web
-- Extracts protobuf files
-- Publishes protobuf definitions as packages
+- Extracts schemas, constants
+- Publishes WhatsApp definitions as packages
 
 ## Current available packages
 
-- [Node.js - NPM](https://www.npmjs.com/package/wweb-proto)
+- [Node.js - NPM](https://www.npmjs.com/package/wa-proto)
 
 ## Contributing
 
