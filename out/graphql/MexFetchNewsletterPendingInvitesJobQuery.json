@@ -1,0 +1,38 @@
+{
+  "id": "9783111038412085",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin": {
+        "type": "object",
+        "properties": {
+          "pending_admin_invites": {
+            "type": "array",
+            "items": {
+              "user": {
+                "type": "object",
+                "properties": {
+                  "pn": {
+                    "type": "scalar"
+                  },
+                  "id": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

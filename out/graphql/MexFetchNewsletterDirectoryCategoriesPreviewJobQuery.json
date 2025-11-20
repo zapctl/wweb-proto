@@ -1,0 +1,103 @@
+{
+  "id": "9933023926735802",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletters_directory_category_preview": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "category": {
+                "type": "scalar"
+              },
+              "category_title": {
+                "type": "scalar"
+              },
+              "newsletters": {
+                "type": "array",
+                "items": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "thread_metadata": {
+                    "type": "object",
+                    "properties": {
+                      "creation_time": {
+                        "type": "scalar"
+                      },
+                      "invite": {
+                        "type": "scalar"
+                      },
+                      "handle": {
+                        "type": "scalar"
+                      },
+                      "subscribers_count": {
+                        "type": "scalar"
+                      },
+                      "name": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "text": {
+                            "type": "scalar"
+                          },
+                          "update_time": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "description": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "text": {
+                            "type": "scalar"
+                          },
+                          "update_time": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "picture": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "scalar"
+                          },
+                          "direct_path": {
+                            "type": "scalar"
+                          },
+                          "type": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "verification": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "9935467776504344",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "group_id": {
+        "type": "scalar"
+      },
+      "query_context": {
+        "type": "scalar"
+      },
+      "sub_group_hint_id": {
+        "type": "scalar"
+      },
+      "group_input": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "scalar"
+          },
+          "query_context": {
+            "type": "scalar"
+          },
+          "sub_group_hint_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_group_query_by_id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "default_sub_group": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "scalar"
+              },
+              "subject": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "scalar"
+                  },
+                  "creation_time": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          },
+          "sub_groups": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "subject": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "scalar"
+                          },
+                          "creation_time": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "properties": {
+                        "type": "object",
+                        "properties": {
+                          "general_chat": {
+                            "type": "scalar"
+                          },
+                          "membership_approval_mode_enabled": {
+                            "type": "scalar"
+                          },
+                          "hidden_group": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "membership_approval_requests": {
+                        "type": "object",
+                        "properties": {
+                          "total_count": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "24247439618185103",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "custom_labels": {
+        "type": "scalar"
+      },
+      "expt_group": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_get_3pd_event": {
+        "type": "array",
+        "items": {
+          "custom_label": {
+            "type": "scalar"
+          },
+          "ctwa_3pd_conversion_type": {
+            "type": "scalar"
+          },
+          "ctwa_3pd_conversion_subtype": {
+            "type": "scalar"
+          },
+          "ctwa_3pd_conversion_metadata": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

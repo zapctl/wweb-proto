@@ -1,0 +1,25 @@
+{
+  "id": "8896855000416010",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_username_set": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

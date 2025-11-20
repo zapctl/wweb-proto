@@ -1,0 +1,21 @@
+{
+  "id": "9580828702035549",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin_invite_accept": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}

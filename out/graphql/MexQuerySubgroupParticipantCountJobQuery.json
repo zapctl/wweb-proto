@@ -1,0 +1,43 @@
+{
+  "id": "24079399904996141",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_group_query_by_id": {
+        "type": "object",
+        "properties": {
+          "sub_groups": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "total_participants_count": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "10031635203620145",
+  "type": "mutation",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "xfb_waffle_fx_wamo_update_uoom": {
+        "type": "scalar"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "10099941310063078",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "param": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_genai_meta_ai_search_typeahead": {
+        "type": "object",
+        "properties": {
+          "suggestions": {
+            "type": "array",
+            "items": {
+              "suggestion": {
+                "type": "scalar"
+              },
+              "session_id": {
+                "type": "scalar"
+              },
+              "context": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

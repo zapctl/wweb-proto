@@ -1,0 +1,44 @@
+{
+  "id": "24535500086059408",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "user": {
+        "type": "scalar"
+      },
+      "updates": {
+        "type": "scalar",
+        "value": [
+          "STATUS"
+        ]
+      },
+      "users": {
+        "type": "array",
+        "items": {
+          "user": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_users_updates_since": {
+        "type": "array",
+        "items": {
+          "updates": {
+            "type": "array",
+            "items": {
+              "text": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

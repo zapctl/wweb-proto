@@ -1,0 +1,25 @@
+{
+  "id": "9801384413216421",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_admin": {
+        "type": "object",
+        "properties": {
+          "capabilities": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

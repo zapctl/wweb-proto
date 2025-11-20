@@ -1,0 +1,106 @@
+{
+  "id": "8823471724422422",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_create": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "scalar"
+              }
+            }
+          },
+          "thread_metadata": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "description": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "text": {
+                    "type": "scalar"
+                  },
+                  "update_time": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "picture": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "scalar"
+                  },
+                  "type": {
+                    "type": "scalar"
+                  },
+                  "direct_path": {
+                    "type": "scalar"
+                  }
+                }
+              },
+              "invite": {
+                "type": "scalar"
+              },
+              "handle": {
+                "type": "scalar"
+              },
+              "verification": {
+                "type": "scalar"
+              },
+              "subscribers_count": {
+                "type": "scalar"
+              },
+              "creation_time": {
+                "type": "scalar"
+              }
+            }
+          },
+          "viewer_metadata": {
+            "type": "object",
+            "properties": {
+              "mute": {
+                "type": "scalar"
+              },
+              "role": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

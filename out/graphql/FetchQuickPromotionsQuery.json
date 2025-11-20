@@ -1,0 +1,348 @@
+{
+  "id": "23863939843202957",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "nux_ids": {
+        "type": "scalar"
+      },
+      "trigger_context": {
+        "type": "scalar"
+      },
+      "include_holdouts": {
+        "type": "scalar",
+        "value": true
+      },
+      "supports_client_side_filters": {
+        "type": "scalar",
+        "value": true
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "quick_promotion_batch_fetch_root": {
+        "type": "array",
+        "items": {
+          "surface_nux_id": {
+            "type": "scalar"
+          },
+          "eligible_promotions": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "client_ttl_seconds": {
+                    "type": "scalar"
+                  },
+                  "priority": {
+                    "type": "scalar"
+                  },
+                  "is_holdout": {
+                    "type": "scalar"
+                  },
+                  "log_eligibility_waterfall": {
+                    "type": "scalar"
+                  },
+                  "time_range": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "scalar"
+                      },
+                      "end": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "promotion_id": {
+                        "type": "scalar"
+                      },
+                      "is_server_force_pass": {
+                        "type": "scalar"
+                      },
+                      "ab_prop_name": {
+                        "type": "scalar"
+                      },
+                      "surface_delay_in_seconds": {
+                        "type": "scalar"
+                      },
+                      "encrypted_logging_data": {
+                        "type": "scalar"
+                      },
+                      "client_side_dry_run": {
+                        "type": "scalar"
+                      },
+                      "creatives": {
+                        "type": "array",
+                        "items": {
+                          "title": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "content": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "primary_action": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": "object",
+                                "properties": {
+                                  "text": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "url": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "wa_light_mode_media_details": {
+                            "type": "object",
+                            "properties": {
+                              "jpeg_thumbnail": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "wa_dark_mode_media_details": {
+                            "type": "object",
+                            "properties": {
+                              "jpeg_thumbnail": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "accessibility_text_for_image": {
+                            "type": "scalar"
+                          },
+                          "is_dismissible": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "content_attributes": {
+                        "type": "object",
+                        "properties": {
+                          "wa_banner_background_color": {
+                            "type": "object",
+                            "properties": {
+                              "light_mode_highlight_color": {
+                                "type": "scalar"
+                              },
+                              "dark_mode_highlight_color": {
+                                "type": "scalar"
+                              },
+                              "light_mode_background_color": {
+                                "type": "scalar"
+                              },
+                              "dark_mode_background_color": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "wa_primary_cta_alternative_url": {
+                            "type": "scalar"
+                          },
+                          "wa_eligible_duration_after_impression_in_seconds": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "wa_qp_content_attributes_do_not_use": {
+                        "type": "array",
+                        "items": {
+                          "name": {
+                            "type": "scalar"
+                          },
+                          "value": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "contextual_filters_for_wa_do_not_use": {
+                        "type": "object",
+                        "properties": {
+                          "clause_type": {
+                            "type": "scalar"
+                          },
+                          "filters": {
+                            "type": "array",
+                            "items": {
+                              "filter_name": {
+                                "type": "scalar"
+                              },
+                              "parameters": {
+                                "type": "array",
+                                "items": {
+                                  "key": {
+                                    "type": "scalar"
+                                  },
+                                  "value": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "passes_if_client_not_supported": {
+                                "type": "scalar"
+                              },
+                              "filter_result": {
+                                "type": "scalar"
+                              }
+                            }
+                          },
+                          "clauses": {
+                            "type": "array",
+                            "items": {
+                              "clause_type": {
+                                "type": "scalar"
+                              },
+                              "filters": {
+                                "type": "array",
+                                "items": {
+                                  "filter_name": {
+                                    "type": "scalar"
+                                  },
+                                  "parameters": {
+                                    "type": "array",
+                                    "items": {
+                                      "key": {
+                                        "type": "scalar"
+                                      },
+                                      "value": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "passes_if_client_not_supported": {
+                                    "type": "scalar"
+                                  },
+                                  "filter_result": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "clauses": {
+                                "type": "array",
+                                "items": {
+                                  "clause_type": {
+                                    "type": "scalar"
+                                  },
+                                  "filters": {
+                                    "type": "array",
+                                    "items": {
+                                      "filter_name": {
+                                        "type": "scalar"
+                                      },
+                                      "parameters": {
+                                        "type": "array",
+                                        "items": {
+                                          "key": {
+                                            "type": "scalar"
+                                          },
+                                          "value": {
+                                            "type": "scalar"
+                                          }
+                                        }
+                                      },
+                                      "passes_if_client_not_supported": {
+                                        "type": "scalar"
+                                      },
+                                      "filter_result": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "clauses": {
+                                    "type": "array",
+                                    "items": {
+                                      "clause_type": {
+                                        "type": "scalar"
+                                      },
+                                      "filters": {
+                                        "type": "array",
+                                        "items": {
+                                          "filter_name": {
+                                            "type": "scalar"
+                                          },
+                                          "parameters": {
+                                            "type": "array",
+                                            "items": {
+                                              "key": {
+                                                "type": "scalar"
+                                              },
+                                              "value": {
+                                                "type": "scalar"
+                                              }
+                                            }
+                                          },
+                                          "passes_if_client_not_supported": {
+                                            "type": "scalar"
+                                          },
+                                          "filter_result": {
+                                            "type": "scalar"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "user_interaction_info": {
+                        "type": "object",
+                        "properties": {
+                          "impression_max_instances": {
+                            "type": "scalar"
+                          },
+                          "impression_count_for_user": {
+                            "type": "scalar"
+                          },
+                          "dismiss_max_instances": {
+                            "type": "scalar"
+                          },
+                          "dismiss_click_count_for_user": {
+                            "type": "scalar"
+                          },
+                          "primary_click_max_instances": {
+                            "type": "scalar"
+                          },
+                          "primary_click_count_for_user": {
+                            "type": "scalar"
+                          },
+                          "secondary_click_count_for_user": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

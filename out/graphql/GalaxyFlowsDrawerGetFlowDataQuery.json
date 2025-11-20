@@ -1,0 +1,69 @@
+{
+  "id": "32671434985780838",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "request": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_extensions_get_flow_data": {
+        "type": "object",
+        "properties": {
+          "extensions_flow_data": {
+            "type": "array",
+            "items": {
+              "flow_id": {
+                "type": "scalar"
+              },
+              "extensions": {
+                "type": "object",
+                "properties": {
+                  "metadata": {
+                    "type": "object",
+                    "properties": {
+                      "flow_name": {
+                        "type": "scalar"
+                      },
+                      "state": {
+                        "type": "scalar"
+                      },
+                      "categories": {
+                        "type": "scalar"
+                      },
+                      "creation_source": {
+                        "type": "scalar"
+                      },
+                      "www_proxy_secret": {
+                        "type": "scalar"
+                      },
+                      "flow_token_signature": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "endpoint_public_key": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "scalar"
+              },
+              "signature": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

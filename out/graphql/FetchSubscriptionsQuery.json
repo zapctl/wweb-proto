@@ -1,0 +1,50 @@
+{
+  "id": "32114967328146495",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "data": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_get_subscriptions": {
+        "type": "object",
+        "properties": {
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "status": {
+                "type": "scalar"
+              },
+              "end_time": {
+                "type": "scalar"
+              },
+              "creation_time": {
+                "type": "scalar"
+              }
+            }
+          },
+          "feature_flags": {
+            "type": "array",
+            "items": {
+              "name": {
+                "type": "scalar"
+              },
+              "enabled": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

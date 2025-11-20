@@ -1,0 +1,69 @@
+{
+  "id": "30648342034781246",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "reason": {
+        "type": "scalar"
+      },
+      "report_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_create_channel_report_appeal_v2": {
+        "type": "object",
+        "properties": {
+          "report_id": {
+            "type": "scalar"
+          },
+          "status": {
+            "type": "scalar"
+          },
+          "creation_time": {
+            "type": "scalar"
+          },
+          "last_update_time": {
+            "type": "scalar"
+          },
+          "channel_name": {
+            "type": "scalar"
+          },
+          "channel_jid": {
+            "type": "scalar"
+          },
+          "server_msg_id": {
+            "type": "scalar"
+          },
+          "response_server_msg_id": {
+            "type": "scalar"
+          },
+          "notify_name": {
+            "type": "scalar"
+          },
+          "appeal": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "scalar"
+              },
+              "appeal_reason": {
+                "type": "scalar"
+              },
+              "creation_time": {
+                "type": "scalar"
+              },
+              "report_id": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

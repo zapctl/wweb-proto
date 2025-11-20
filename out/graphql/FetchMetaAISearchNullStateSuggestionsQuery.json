@@ -1,0 +1,42 @@
+{
+  "id": "9962874563796224",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "exp_config": {
+        "type": "scalar"
+      },
+      "locale": {
+        "type": "scalar"
+      },
+      "null_state_source": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_genai_meta_ai_search_null_state": {
+        "type": "object",
+        "properties": {
+          "suggestions": {
+            "type": "array",
+            "items": {
+              "suggestion": {
+                "type": "scalar"
+              },
+              "query": {
+                "type": "scalar"
+              },
+              "session_id": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

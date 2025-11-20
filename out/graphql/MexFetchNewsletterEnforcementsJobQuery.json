@@ -1,0 +1,267 @@
+{
+  "id": "9808120992618220",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "newsletter_id": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_channel_enforcements": {
+        "type": "object",
+        "properties": {
+          "profile_picture_deletions": {
+            "type": "array",
+            "items": {
+              "enforcement_creation_time": {
+                "type": "scalar"
+              },
+              "appeal_creation_time": {
+                "type": "scalar"
+              },
+              "appeal_state": {
+                "type": "scalar"
+              },
+              "enforcement_violation_category": {
+                "type": "scalar"
+              },
+              "enforcement_source": {
+                "type": "scalar"
+              },
+              "enforcement_id": {
+                "type": "scalar"
+              },
+              "enforcement_extra_data": {
+                "type": "object",
+                "properties": {
+                  "ip_violation_report_data": {
+                    "type": "object",
+                    "properties": {
+                      "report_fbid": {
+                        "type": "scalar"
+                      },
+                      "appeal_form_url": {
+                        "type": "scalar"
+                      },
+                      "reporter_email": {
+                        "type": "scalar"
+                      },
+                      "reporter_name": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "suspensions": {
+            "type": "array",
+            "items": {
+              "appeal_creation_time": {
+                "type": "scalar"
+              },
+              "enforcement_creation_time": {
+                "type": "scalar"
+              },
+              "appeal_state": {
+                "type": "scalar"
+              },
+              "enforcement_violation_category": {
+                "type": "scalar"
+              },
+              "enforcement_id": {
+                "type": "scalar"
+              },
+              "enforcement_source": {
+                "type": "scalar"
+              },
+              "enforcement_extra_data": {
+                "type": "object",
+                "properties": {
+                  "ip_violation_report_data": {
+                    "type": "object",
+                    "properties": {
+                      "report_fbid": {
+                        "type": "scalar"
+                      },
+                      "appeal_form_url": {
+                        "type": "scalar"
+                      },
+                      "reporter_email": {
+                        "type": "scalar"
+                      },
+                      "reporter_name": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "enforcement_target_data": {
+                    "type": "object",
+                    "properties": {
+                      "server_msg_id": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "appeal_extra_data": {
+                    "type": "object",
+                    "properties": {
+                      "appeal_form_url": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "violating_messages": {
+            "type": "array",
+            "items": {
+              "base_enforcement_data": {
+                "type": "object",
+                "properties": {
+                  "enforcement_creation_time": {
+                    "type": "scalar"
+                  },
+                  "appeal_creation_time": {
+                    "type": "scalar"
+                  },
+                  "appeal_state": {
+                    "type": "scalar"
+                  },
+                  "enforcement_id": {
+                    "type": "scalar"
+                  },
+                  "enforcement_violation_category": {
+                    "type": "scalar"
+                  },
+                  "enforcement_source": {
+                    "type": "scalar"
+                  },
+                  "enforcement_extra_data": {
+                    "type": "object",
+                    "properties": {
+                      "ip_violation_report_data": {
+                        "type": "object",
+                        "properties": {
+                          "report_fbid": {
+                            "type": "scalar"
+                          },
+                          "appeal_form_url": {
+                            "type": "scalar"
+                          },
+                          "reporter_email": {
+                            "type": "scalar"
+                          },
+                          "reporter_name": {
+                            "type": "scalar"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "server_msg_id": {
+                "type": "scalar"
+              }
+            }
+          },
+          "geosuspensions": {
+            "type": "array",
+            "items": {
+              "base_enforcement_data": {
+                "type": "object",
+                "properties": {
+                  "enforcement_creation_time": {
+                    "type": "scalar"
+                  },
+                  "appeal_creation_time": {
+                    "type": "scalar"
+                  },
+                  "appeal_state": {
+                    "type": "scalar"
+                  },
+                  "enforcement_id": {
+                    "type": "scalar"
+                  },
+                  "enforcement_violation_category": {
+                    "type": "scalar"
+                  },
+                  "enforcement_source": {
+                    "type": "scalar"
+                  },
+                  "enforcement_extra_data": {
+                    "type": "object",
+                    "properties": {
+                      "ip_violation_report_data": {
+                        "type": "object",
+                        "properties": {
+                          "report_fbid": {
+                            "type": "scalar"
+                          },
+                          "appeal_form_url": {
+                            "type": "scalar"
+                          },
+                          "reporter_email": {
+                            "type": "scalar"
+                          },
+                          "reporter_name": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "enforcement_target_data": {
+                        "type": "object",
+                        "properties": {
+                          "server_msg_id": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "appeal_extra_data": {
+                        "type": "object",
+                        "properties": {
+                          "appeal_form_url": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "enforcing_entity_data": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "enforcement_origin_workflow": {
+                        "type": "scalar"
+                      },
+                      "enforcement_origin_legal_basis": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              },
+              "country_code": {
+                "type": "scalar"
+              },
+              "country_codes": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

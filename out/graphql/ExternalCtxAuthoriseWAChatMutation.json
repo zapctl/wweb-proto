@@ -1,0 +1,28 @@
+{
+  "id": "9790465291023292",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa_external_ctx_authorise_wa_chat": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "scalar"
+          },
+          "partner_name": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

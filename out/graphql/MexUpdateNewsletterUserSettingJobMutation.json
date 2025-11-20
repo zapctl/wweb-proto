@@ -1,0 +1,33 @@
+{
+  "id": "31938993655691868",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_update_user_setting": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

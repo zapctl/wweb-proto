@@ -1,0 +1,99 @@
+{
+  "id": "23972005349071865",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "group_id": {
+        "type": "scalar"
+      },
+      "query_context": {
+        "type": "scalar"
+      },
+      "sub_group_hint_id": {
+        "type": "scalar"
+      },
+      "group_input": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "scalar"
+          },
+          "query_context": {
+            "type": "scalar"
+          },
+          "sub_group_hint_id": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_group_query_by_id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "sub_group_suggestions": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "subject": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "description": {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "creator": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "scalar"
+                          }
+                        }
+                      },
+                      "creation_time": {
+                        "type": "scalar"
+                      },
+                      "total_participants_count": {
+                        "type": "scalar"
+                      },
+                      "is_existing_group": {
+                        "type": "scalar"
+                      },
+                      "hidden_group": {
+                        "type": "scalar"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

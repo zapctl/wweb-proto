@@ -1,0 +1,21 @@
+{
+  "id": "9656368401073090",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "ctwa_client_entry_point_entitlement": {
+        "type": "array",
+        "items": {
+          "entry_point_or_experience": {
+            "type": "scalar"
+          },
+          "should_show": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}

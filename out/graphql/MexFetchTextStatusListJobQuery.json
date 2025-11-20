@@ -1,0 +1,42 @@
+{
+  "id": "24072923595647473",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_text_status_list": {
+        "type": "array",
+        "items": {
+          "jid": {
+            "type": "scalar"
+          },
+          "text": {
+            "type": "scalar"
+          },
+          "last_update_time": {
+            "type": "scalar"
+          },
+          "ephemeral_duration_sec": {
+            "type": "scalar"
+          },
+          "emoji": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "scalar"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

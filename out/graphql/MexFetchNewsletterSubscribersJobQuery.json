@@ -1,0 +1,52 @@
+{
+  "id": "9537574256318798",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletter_subscribers": {
+        "type": "object",
+        "properties": {
+          "subscribers": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "display_name": {
+                        "type": "scalar"
+                      },
+                      "pn": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "subscribe_time": {
+                    "type": "scalar"
+                  },
+                  "role": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

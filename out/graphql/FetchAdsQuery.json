@@ -1,0 +1,186 @@
+{
+  "id": "9191121574326058",
+  "type": "query",
+  "input": null,
+  "output": {
+    "type": "object",
+    "properties": {
+      "ctwa": {
+        "type": "object",
+        "properties": {
+          "all_page_ads": {
+            "type": "object",
+            "properties": {
+              "edges": {
+                "type": "array",
+                "items": {
+                  "node": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "wrapper_renderer": {
+                        "type": "object",
+                        "properties": {
+                          "boosted_component": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "scalar"
+                              },
+                              "boosting_info": {
+                                "type": "object",
+                                "properties": {
+                                  "spent": {
+                                    "type": "object",
+                                    "properties": {
+                                      "formatted_for_lwi": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "thumbnail_image_url": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "campaign_group": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "scalar"
+                                  },
+                                  "ad_insights": {
+                                    "type": "object",
+                                    "properties": {
+                                      "edges": {
+                                        "type": "array",
+                                        "items": {
+                                          "node": {
+                                            "type": "object",
+                                            "properties": {
+                                              "reach": {
+                                                "type": "scalar"
+                                              },
+                                              "results": {
+                                                "type": "scalar"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "spec": {
+                                "type": "object",
+                                "properties": {
+                                  "boosting_status": {
+                                    "type": "scalar"
+                                  },
+                                  "adgroup_spec": {
+                                    "type": "array",
+                                    "items": {
+                                      "creative": {
+                                        "type": "object",
+                                        "properties": {
+                                          "body": {
+                                            "type": "scalar"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "async_request": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "scalar"
+                              },
+                              "boosting_info": {
+                                "type": "object",
+                                "properties": {
+                                  "spent": {
+                                    "type": "object",
+                                    "properties": {
+                                      "formatted_for_lwi": {
+                                        "type": "scalar"
+                                      }
+                                    }
+                                  },
+                                  "thumbnail_image_url": {
+                                    "type": "scalar"
+                                  }
+                                }
+                              },
+                              "campaign_group": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "scalar"
+                                  },
+                                  "ad_insights": {
+                                    "type": "object",
+                                    "properties": {
+                                      "edges": {
+                                        "type": "array",
+                                        "items": {
+                                          "node": {
+                                            "type": "object",
+                                            "properties": {
+                                              "reach": {
+                                                "type": "scalar"
+                                              },
+                                              "results": {
+                                                "type": "scalar"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "spec": {
+                                "type": "object",
+                                "properties": {
+                                  "boosting_status": {
+                                    "type": "scalar"
+                                  },
+                                  "adgroup_spec": {
+                                    "type": "array",
+                                    "items": {
+                                      "creative": {
+                                        "type": "object",
+                                        "properties": {
+                                          "body": {
+                                            "type": "scalar"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

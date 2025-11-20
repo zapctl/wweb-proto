@@ -1,0 +1,109 @@
+{
+  "id": "9699865846759651",
+  "type": "query",
+  "input": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_newsletters_directory_search": {
+        "type": "object",
+        "properties": {
+          "page_info": {
+            "type": "object",
+            "properties": {
+              "hasNextPage": {
+                "type": "scalar"
+              },
+              "hasPreviousPage": {
+                "type": "scalar"
+              },
+              "startCursor": {
+                "type": "scalar"
+              },
+              "endCursor": {
+                "type": "scalar"
+              }
+            }
+          },
+          "result": {
+            "type": "array",
+            "items": {
+              "id": {
+                "type": "scalar"
+              },
+              "thread_metadata": {
+                "type": "object",
+                "properties": {
+                  "creation_time": {
+                    "type": "scalar"
+                  },
+                  "invite": {
+                    "type": "scalar"
+                  },
+                  "handle": {
+                    "type": "scalar"
+                  },
+                  "subscribers_count": {
+                    "type": "scalar"
+                  },
+                  "name": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "text": {
+                        "type": "scalar"
+                      },
+                      "update_time": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "description": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "text": {
+                        "type": "scalar"
+                      },
+                      "update_time": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "picture": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "scalar"
+                      },
+                      "direct_path": {
+                        "type": "scalar"
+                      },
+                      "type": {
+                        "type": "scalar"
+                      }
+                    }
+                  },
+                  "verification": {
+                    "type": "scalar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

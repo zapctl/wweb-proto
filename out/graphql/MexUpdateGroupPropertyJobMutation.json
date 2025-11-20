@@ -1,0 +1,31 @@
+{
+  "id": "9418211574894172",
+  "type": "mutation",
+  "input": {
+    "type": "object",
+    "properties": {
+      "group_id": {
+        "type": "scalar"
+      },
+      "update": {
+        "type": "scalar"
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "xwa2_group_update_property": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "scalar"
+          },
+          "state": {
+            "type": "scalar"
+          }
+        }
+      }
+    }
+  }
+}
