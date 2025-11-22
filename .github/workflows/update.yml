@@ -89,7 +89,7 @@ jobs:
         with:
           name: out
           path: |
-            out
+            out/.dist
             !node_modules
 
       - name: Publish packages
