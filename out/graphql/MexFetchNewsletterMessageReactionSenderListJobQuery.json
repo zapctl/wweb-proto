@@ -1,5 +1,6 @@
 {
   "id": "29575462448733991",
+  "name": "MexFetchNewsletterMessageReactionSenderListJob",
   "type": "query",
   "input": {
     "type": "object",

@@ -1,5 +1,6 @@
 {
   "id": "WAWebReportProductJobMutation",
+  "name": "ReportProductJob",
   "type": "mutation",
   "input": {
     "type": "object",

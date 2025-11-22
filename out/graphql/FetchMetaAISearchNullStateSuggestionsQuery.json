@@ -1,5 +1,6 @@
 {
   "id": "9962874563796224",
+  "name": "FetchMetaAISearchNullStateSuggestions",
   "type": "query",
   "input": {
     "type": "object",

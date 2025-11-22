@@ -1,9 +1,11 @@
 #!/bin/bash
 
 PROTO_DIR=$OUT_DIR/protobuf
+GRAPHQL_DIR=$OUT_DIR/graphql
 
 OUT=$OUT_DIR/.dist/nodejs
 PROTO_OUT=$OUT/proto
+GRAPHQL_OUT=$OUT/graphql
 
 setup() {
     echo "Installing dependencies..."
@@ -80,8 +82,20 @@ compile_ts() {
 
     echo "TypeScript compilation completed"
 
-    echo "Removing TypeScript source files..."
-    rm $tsFiles
+    # echo "Removing TypeScript source files..."
+    # rm $tsFiles
+}
+
+generate_graphql() {
+    echo "Generating GraphQL TypeScript definitions..."
+    mkdir -p $GRAPHQL_OUT
+
+    node $(dirname "$0")/scripts/generate-graphql.js "$GRAPHQL_DIR" "$GRAPHQL_OUT/index.ts" || {
+        echo "Error: GraphQL generation failed"
+        exit 1
+    }
+
+    echo "GraphQL generation completed"
 }
 
 minify() {
@@ -114,5 +128,6 @@ setup
 generate_package
 generate_index
 compile_proto
+generate_graphql
 compile_ts
 minify

@@ -1,5 +1,6 @@
 {
   "id": "9880997548630971",
+  "name": "MexDemoteNewsletterAdminJob",
   "type": "mutation",
   "input": {
     "type": "object",

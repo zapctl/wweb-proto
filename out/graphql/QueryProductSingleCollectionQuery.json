@@ -1,5 +1,6 @@
 {
   "id": "9546992575408789",
+  "name": "QueryProductSingleCollection",
   "type": "query",
   "input": {
     "type": "object",

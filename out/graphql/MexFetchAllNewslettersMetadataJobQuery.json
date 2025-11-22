@@ -1,5 +1,6 @@
 {
   "id": "10041060382573821",
+  "name": "MexFetchAllNewslettersMetadataJob",
   "type": "query",
   "input": null,
   "output": {

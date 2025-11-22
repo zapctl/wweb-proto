@@ -1,5 +1,6 @@
 {
   "id": "WAWebGraphQLProductCatalogGetPublicKeyJobQuery",
+  "name": "GraphQLProductCatalogGetPublicKeyJob",
   "type": "query",
   "input": {
     "type": "object",

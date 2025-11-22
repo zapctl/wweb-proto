@@ -1,5 +1,6 @@
 {
   "id": "9759957480718978",
+  "name": "QueryCatalogHasCategories",
   "type": "query",
   "input": {
     "type": "object",

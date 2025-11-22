@@ -1,5 +1,6 @@
 {
   "id": "9647868451963105",
+  "name": "QueryCatalogProduct",
   "type": "query",
   "input": {
     "type": "object",

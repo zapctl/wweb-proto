@@ -1,5 +1,6 @@
 {
   "id": "24541201322134132",
+  "name": "AiAgentAutoReplyControl",
   "type": "mutation",
   "input": {
     "type": "object",

@@ -1,5 +1,6 @@
 {
   "id": "9849510985088294",
+  "name": "MexFetchNewsletterIsDomainPreviewableJob",
   "type": "query",
   "input": {
     "type": "object",

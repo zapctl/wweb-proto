@@ -1,5 +1,6 @@
 {
   "id": "9587446314672913",
+  "name": "MexGetUsernameJob",
   "type": "query",
   "input": null,
   "output": {

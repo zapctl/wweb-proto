@@ -1,5 +1,6 @@
 {
   "id": "8896855000416010",
+  "name": "MexSetUsernameJob",
   "type": "mutation",
   "input": {
     "type": "object",

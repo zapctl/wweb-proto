@@ -1,5 +1,6 @@
 {
   "id": "9741612265875562",
+  "name": "QuickPromotionAction",
   "type": "mutation",
   "input": {
     "type": "object",

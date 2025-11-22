@@ -1,5 +1,6 @@
 {
   "id": "30328461880085868",
+  "name": "MexFetchNewsletterDehydratedJob",
   "type": "query",
   "input": {
     "type": "object",

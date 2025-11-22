@@ -1,5 +1,6 @@
 {
   "id": "23972005349071865",
+  "name": "MexFetchSubgroupSuggestionsJob",
   "type": "query",
   "input": {
     "type": "object",

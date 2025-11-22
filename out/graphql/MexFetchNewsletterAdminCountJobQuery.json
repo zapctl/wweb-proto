@@ -1,5 +1,6 @@
 {
   "id": "29186079397702825",
+  "name": "MexFetchNewsletterAdminCountJob",
   "type": "query",
   "input": {
     "type": "object",

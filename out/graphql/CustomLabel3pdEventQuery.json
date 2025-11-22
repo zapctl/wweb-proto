@@ -1,5 +1,6 @@
 {
   "id": "24247439618185103",
+  "name": "CustomLabel3pdEvent",
   "type": "query",
   "input": {
     "type": "object",

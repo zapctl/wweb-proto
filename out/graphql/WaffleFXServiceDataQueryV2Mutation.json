@@ -1,5 +1,6 @@
 {
   "id": "9475021792620702",
+  "name": "WaffleFXServiceDataQueryV2",
   "type": "mutation",
   "input": null,
   "output": {

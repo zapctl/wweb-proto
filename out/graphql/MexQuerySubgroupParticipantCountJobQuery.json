@@ -1,5 +1,6 @@
 {
   "id": "24079399904996141",
+  "name": "MexQuerySubgroupParticipantCountJob",
   "type": "query",
   "input": {
     "type": "object",

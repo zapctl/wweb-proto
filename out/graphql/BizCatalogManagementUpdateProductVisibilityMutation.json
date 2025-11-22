@@ -1,5 +1,6 @@
 {
   "id": "9665162096898581",
+  "name": "BizCatalogManagementUpdateProductVisibility",
   "type": "mutation",
   "input": {
     "type": "object",

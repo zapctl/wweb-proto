@@ -1,5 +1,6 @@
 {
   "id": "30648342034781246",
+  "name": "MexCreateReportAppealJob",
   "type": "mutation",
   "input": {
     "type": "object",

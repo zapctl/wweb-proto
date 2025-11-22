@@ -1,5 +1,6 @@
 {
   "id": "9801384413216421",
+  "name": "MexFetchNewsletterAdminCapabilitiesJob",
   "type": "query",
   "input": {
     "type": "object",

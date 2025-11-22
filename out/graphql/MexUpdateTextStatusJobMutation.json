@@ -1,5 +1,6 @@
 {
   "id": "9152604461510864",
+  "name": "MexUpdateTextStatusJob",
   "type": "mutation",
   "input": {
     "type": "object",

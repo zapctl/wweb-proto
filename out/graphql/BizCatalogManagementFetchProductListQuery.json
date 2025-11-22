@@ -1,5 +1,6 @@
 {
   "id": "9742717385774446",
+  "name": "BizCatalogManagementFetchProductList",
   "type": "query",
   "input": {
     "type": "object",

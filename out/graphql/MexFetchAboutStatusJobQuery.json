@@ -1,5 +1,6 @@
 {
   "id": "24535500086059408",
+  "name": "MexFetchAboutStatusJob",
   "type": "query",
   "input": {
     "type": "object",

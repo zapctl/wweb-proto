@@ -1,5 +1,6 @@
 {
   "id": "24503548349331633",
+  "name": "MexFetchNewChatMessageCappingInfoJob",
   "type": "query",
   "input": {
     "type": "object",

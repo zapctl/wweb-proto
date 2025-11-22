@@ -1,5 +1,6 @@
 {
   "id": "30125049463760630",
+  "name": "QueryProductListCatalogJob",
   "type": "query",
   "input": {
     "type": "object",

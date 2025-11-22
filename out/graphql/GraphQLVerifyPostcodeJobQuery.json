@@ -1,5 +1,6 @@
 {
   "id": "WAWebGraphQLVerifyPostcodeJobQuery",
+  "name": "GraphQLVerifyPostcodeJob",
   "type": "query",
   "input": {
     "type": "object",

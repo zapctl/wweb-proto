@@ -1,5 +1,6 @@
 {
   "id": "23863939843202957",
+  "name": "FetchQuickPromotions",
   "type": "query",
   "input": {
     "type": "object",

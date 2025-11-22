@@ -5,10 +5,12 @@ function parseGraphQLSchemas() {
     const relayDefinitions = extractRelayModuleDefinitions();
 
     for (const definition of relayDefinitions) {
-        const schemaName = definition.params.name.replace(/^WAWeb/g, "");
+        const specName = definition.params.name.replace(/^WAWeb/, "");
+        const schemaName = specName.replace(/Query$|Mutation$/, "");
 
-        schemaSpecs[schemaName] = {
+        schemaSpecs[specName] = {
             id: definition.params.id,
+            name: schemaName,
             type: definition.params.operationKind,
             input: parseInputSchema([definition.fragment]),
             output: parseOutputSchema([definition.fragment]),

@@ -1,5 +1,6 @@
 {
   "id": "24072923595647473",
+  "name": "MexFetchTextStatusListJob",
   "type": "query",
   "input": {
     "type": "object",

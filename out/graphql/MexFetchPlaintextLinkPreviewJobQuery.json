@@ -1,5 +1,6 @@
 {
   "id": "9101130456653613",
+  "name": "MexFetchPlaintextLinkPreviewJob",
   "type": "query",
   "input": {
     "type": "object",

@@ -1,5 +1,6 @@
 {
   "id": "9797519763673469",
+  "name": "BizCatalogManagementUpdateCommerceSettings",
   "type": "mutation",
   "input": {
     "type": "object",

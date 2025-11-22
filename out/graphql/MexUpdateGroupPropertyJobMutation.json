@@ -1,5 +1,6 @@
 {
   "id": "9418211574894172",
+  "name": "MexUpdateGroupPropertyJob",
   "type": "mutation",
   "input": {
     "type": "object",

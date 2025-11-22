@@ -1,5 +1,6 @@
 {
   "id": "9569660009784796",
+  "name": "FetchSubscriptionEntryPoints",
   "type": "query",
   "input": null,
   "output": {

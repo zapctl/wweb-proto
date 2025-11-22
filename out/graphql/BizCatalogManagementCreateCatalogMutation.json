@@ -1,5 +1,6 @@
 {
   "id": "29232780583035464",
+  "name": "BizCatalogManagementCreateCatalog",
   "type": "mutation",
   "input": {
     "type": "object",

@@ -1,5 +1,6 @@
 {
   "id": "9656368401073090",
+  "name": "FetchAdEntryPointsConfiguration",
   "type": "query",
   "input": null,
   "output": {

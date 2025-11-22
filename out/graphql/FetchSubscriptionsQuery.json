@@ -1,5 +1,6 @@
 {
   "id": "32114967328146495",
+  "name": "FetchSubscriptions",
   "type": "query",
   "input": {
     "type": "object",

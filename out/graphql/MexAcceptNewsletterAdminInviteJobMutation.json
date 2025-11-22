@@ -1,5 +1,6 @@
 {
   "id": "9580828702035549",
+  "name": "MexAcceptNewsletterAdminInviteJob",
   "type": "mutation",
   "input": {
     "type": "object",

@@ -1,5 +1,6 @@
 {
   "id": "9687699931342731",
+  "name": "BizCatalogManagementFetchCollections",
   "type": "query",
   "input": {
     "type": "object",

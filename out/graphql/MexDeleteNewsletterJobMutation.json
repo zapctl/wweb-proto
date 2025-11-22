@@ -1,5 +1,6 @@
 {
   "id": "30062808666639665",
+  "name": "MexDeleteNewsletterJob",
   "type": "mutation",
   "input": {
     "type": "object",

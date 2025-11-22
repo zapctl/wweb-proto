@@ -1,5 +1,6 @@
 {
   "id": "9376108569185474",
+  "name": "BizCatalogManagementDeleteProduct",
   "type": "mutation",
   "input": {
     "type": "object",

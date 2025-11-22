@@ -1,5 +1,6 @@
 {
   "id": "9783111038412085",
+  "name": "MexFetchNewsletterPendingInvitesJob",
   "type": "query",
   "input": {
     "type": "object",

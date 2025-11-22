@@ -1,5 +1,6 @@
 {
   "id": "WAWebBizGraphQLRefreshCartJobQuery",
+  "name": "BizGraphQLRefreshCartJob",
   "type": "query",
   "input": {
     "type": "object",

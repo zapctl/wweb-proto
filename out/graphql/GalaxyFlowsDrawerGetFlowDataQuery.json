@@ -1,5 +1,6 @@
 {
   "id": "32671434985780838",
+  "name": "GalaxyFlowsDrawerGetFlowData",
   "type": "query",
   "input": {
     "type": "object",

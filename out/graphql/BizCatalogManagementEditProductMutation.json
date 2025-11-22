@@ -1,5 +1,6 @@
 {
   "id": "9889773371084956",
+  "name": "BizCatalogManagementEditProduct",
   "type": "mutation",
   "input": {
     "type": "object",

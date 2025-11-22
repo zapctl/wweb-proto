@@ -1,5 +1,6 @@
 {
   "id": "9790465291023292",
+  "name": "ExternalCtxAuthoriseWAChat",
   "type": "mutation",
   "input": {
     "type": "object",
