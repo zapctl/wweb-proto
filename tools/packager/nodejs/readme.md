@@ -24,10 +24,6 @@ To install the package, use npm:
 npm install wa-kit
 ```
 
-## Usage
-
-The extracted definitions are ready to be used. Protocol Buffer definitions are compiled using [`@bufbuild/protobuf v1.10.0`](https://www.npmjs.com/package/@bufbuild/protobuf/v/1.10.0). Please refer to the bufbuild documentation for more details on working with protobuf definitions.
-
 ## Contributing
 
 Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request on the [GitHub repository](https://github.com/zapctl/wa-kit).

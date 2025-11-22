@@ -14,4 +14,8 @@ This project monitors WhatsApp Web updates and extracts definitions, including s
 
 ## Contributing
 
-Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request.
+Contributions are welcome! If you find an issue or have a suggestion, please open an issue or submit a pull request on the [GitHub repository](https://github.com/zapctl/wa-kit).
+
+## Legal Notice
+
+This package is for educational and development purposes. Please respect WhatsApp's Terms of Service when using these definitions.
