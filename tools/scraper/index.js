@@ -6,7 +6,7 @@ import puppeteer from "puppeteer";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const IS_DEBUG =process.env.NODE_ENV === "development";
+const IS_DEBUG = process.env.NODE_ENV === "development";
 const OUT_DIR = process.env.OUT_DIR || "./out";
 
 const VERSION_PATH = path.join(OUT_DIR, ".version");

@@ -97,7 +97,7 @@ jobs:
         run: bash publish.sh
         working-directory: tools/packager
         env:
-          OUT_DIR: ${{ github.workspace }}/out/packages
+          DIST_DIR: ${{ github.workspace }}/out/.dist
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit changes
