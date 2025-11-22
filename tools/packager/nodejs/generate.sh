@@ -3,7 +3,7 @@
 PROTO_DIR=$OUT_DIR/protobuf
 GRAPHQL_DIR=$OUT_DIR/graphql
 
-OUT=$OUT_DIR/.dist/nodejs
+OUT=$OUT_DIR/dist/nodejs
 PROTO_OUT=$OUT/proto
 GRAPHQL_OUT=$OUT/graphql
 

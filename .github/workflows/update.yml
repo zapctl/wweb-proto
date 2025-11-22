@@ -89,7 +89,7 @@ jobs:
         with:
           name: out
           path: |
-            out/.dist
+            out/dist
             !node_modules
 
       - name: Publish packages
@@ -97,7 +97,7 @@ jobs:
         run: bash publish.sh
         working-directory: tools/packager
         env:
-          DIST_DIR: ${{ github.workspace }}/out/.dist
+          DIST_DIR: ${{ github.workspace }}/out/dist
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Commit changes
